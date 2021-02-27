@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_ly"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.user.fragment.HomeUserFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--    Profil account-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/icon_profil"
+                        android:layout_width="45dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginRight="2dp"
+                        android:src="@drawable/ic_baseline_account_circle" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:text="Hello,"/>
+
+                    <TextView
+                        android:id="@+id/txt_nama"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:text="Bagus"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/black"
+                        android:text="Siman ,Ponorogo"/>
+
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:elevation="0dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="10dp"
+                    tools:targetApi="o">
+
+                    <HorizontalScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorBackground"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="20dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/ln_art"
+                                android:layout_width="80dp"
+                                android:layout_height="120dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginRight="5dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="60dp"
+                                    android:layout_margin="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/artikel"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_horizontal"
+                                    android:textAlignment="center"
+                                    android:text="Artikel" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ln_ps"
+                                android:layout_width="80dp"
+                                android:layout_height="120dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginRight="5dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="60dp"
+                                    android:layout_margin="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/permohonan_surat" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_horizontal"
+                                    android:textAlignment="center"
+                                    android:text="Permohonan Surat" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ln_pd"
+                                android:layout_width="80dp"
+                                android:layout_height="120dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginRight="5dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="60dp"
+                                    android:layout_margin="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/pengaduan"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_horizontal"
+                                    android:textAlignment="center"
+                                    android:text="Pengaduan" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ln_pb"
+                                android:layout_width="80dp"
+                                android:layout_height="120dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="60dp"
+                                    android:layout_margin="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/permohonan"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_horizontal"
+                                    android:textAlignment="center"
+                                    android:text="Program Bantuan" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                </androidx.cardview.widget.CardView>
+
+                <!--    Berita Terbaru-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:text="Berita Terbaru"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.facebook.shimmer.ShimmerFrameLayout
+                            android:id="@+id/shimmer_view_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:shimmer_repeat_mode="restart"
+                            app:shimmer_shape="radial">
+
+                            <include layout="@layout/shimmer_layout"/>
+
+                        </com.facebook.shimmer.ShimmerFrameLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_berita"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <!--        Pengumuman-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:text="Pengumuman"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="12sp"
+                            android:textAlignment="textEnd"
+                            android:textColor="@android:color/darker_gray"
+                            android:text="Lihat Semua"
+                            android:gravity="end" />
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="10dp"
+                            tools:targetApi="o">
+
+                            <ImageView
+                                android:id="@+id/pengumuman"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"
+                                android:scaleType="center"
+                                android:src="@drawable/img_kerja_bakti" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/img_putih"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginBottom="-40dp"
+                                    android:src="@android:color/white" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_above="@+id/img_putih"
+                                    android:layout_alignStart="@+id/text_p"
+                                    android:layout_alignLeft="@+id/text_p"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:gravity="right"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="2dp"
+                                        android:text="Senin ,20 Januari 2021"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="10sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="10dp"
+                                        android:gravity="right"
+                                        android:text="12.00 WIB"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="10sp"/>
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/txt_kat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignTop="@+id/img_putih"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_marginStart="23dp"
+                                    android:layout_marginLeft="23dp"
+                                    android:layout_marginTop="8dp"
+                                    android:textStyle="bold"
+                                    android:text="Kerja Bakti"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/txt_kat"
+                                    android:layout_alignStart="@+id/txt_kat"
+                                    android:layout_alignLeft="@+id/txt_kat"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Kerja Bakti untuk membersihakn Jalan Desa"
+                                    android:textSize="10sp" />
+
+                                <Button
+                                    android:id="@+id/btn_detail"
+                                    android:layout_width="69dp"
+                                    android:layout_height="21dp"
+                                    android:layout_alignTop="@+id/img_putih"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="21dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/background_button_daftar"
+                                    android:text="Detail >"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="6sp" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

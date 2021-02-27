@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.pro_desa">
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+
+    <application
+        android:name=".Myapp"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_pd"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_pd_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.user.activity.ProfilUserActivity"></activity>
+        <activity android:name=".NotificationReceiverActivity" />
+        <activity android:name=".CobaNotif" />
+        <activity android:name=".Myapp" />
+        <activity android:name=".ui.user.activity.timeline.KeteranganSuratActivity" />
+        <activity android:name=".ui.user.activity.FormPengaduanActivity" />
+        <activity android:name=".ui.user.activity.DetailPengumumanActivity" />
+        <activity android:name=".ui.user.activity.ProfilActivity" />
+        <activity android:name=".ui.user.activity.DetailPesanActivity" />
+        <activity android:name=".ui.user.activity.LayananMandiriActivity" />
+        <activity android:name=".ui.user.activity.BantuanActivity" />
+        <activity android:name=".ui.user.activity.DetailPengaduanActivity" />
+        <activity android:name=".ui.user.activity.PengaduanActivity" />
+        <activity android:name=".ui.user.activity.DetailArtikelActivity" />
+        <activity android:name=".ui.user.activity.ArtikelActivity" />
+        <activity android:name=".ui.user.HomeUserActivity" />
+        <activity android:name=".ui.activity.Register2Activity" /> <!-- <activity android:name=".ui.activity.WelcomeActivity"/> -->
+        <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name=".ui.activity.LoginActivity" />
+        <activity
+            android:name=".ui.activity.WelcomeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

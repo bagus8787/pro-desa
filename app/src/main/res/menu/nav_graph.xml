@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph_main"
+    app:startDestination="@id/starFragment">
+
+    <fragment
+        android:id="@+id/starFragment"
+        android:name="com.example.app.ui.StarrFragment"
+        android:label="Star"
+        tools:layout="@layout/fragment_star">
+    </fragment>
+    <fragment
+        android:id="@+id/statsFragment"
+        android:name="com.example.app.StatsFragment"
+        android:label="fragment_stats"
+        tools:layout="@layout/fragment_stats" />
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.app.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
+</navigation>

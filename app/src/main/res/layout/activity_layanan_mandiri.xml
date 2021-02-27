@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBackground"
+    tools:context=".ui.user.activity.LayananMandiriActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/ic_baseline_arrow_back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:textStyle="bold"
+        android:text="@string/layanan_mandiri"
+        android:textSize="28sp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/layanan_umum"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Layanan yang sering di gunakan"/>
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:fillViewport="true"
+                android:measureAllChildren="false"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="200dp"
+                        android:layout_height="100dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_art"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="10dp"
+                            tools:targetApi="o">
+
+                            <ImageView
+                                android:id="@+id/img_srt_masuk"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"
+                                android:scaleType="center"
+                                android:src="@android:color/holo_orange_dark" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_marginRight="20dp"
+                                    android:src="@drawable/history_surat" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="@string/surat_masuk"
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="Pengantar"
+                                        android:textSize="10sp"
+                                        android:textColor="@android:color/white"/>
+
+                                </LinearLayout>
+
+
+
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="200dp"
+                        android:layout_height="100dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_pend"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="10dp"
+                            tools:targetApi="o">
+
+                            <ImageView
+                                android:id="@+id/img_srt_masuk_pen"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"
+                                android:scaleType="center"
+                                android:src="@android:color/holo_blue_bright" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_marginRight="20dp"
+                                    android:src="@drawable/penduduk" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="@string/surat_masuk"
+                                        android:textColor="@android:color/holo_blue_dark"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="Pengantar"
+                                        android:textSize="10sp"
+                                        android:textColor="@android:color/white"/>
+
+                                </LinearLayout>
+
+
+
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="200dp"
+                        android:layout_height="100dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_pend2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="10dp"
+                            tools:targetApi="o">
+
+                            <ImageView
+                                android:id="@+id/img_srt_masuk_pen2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"
+                                android:scaleType="center"
+                                android:src="@android:color/holo_blue_bright" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_marginRight="20dp"
+                                    android:src="@drawable/penduduk" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="@string/surat_masuk"
+                                        android:textColor="@android:color/holo_blue_dark"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="Pengantar"
+                                        android:textSize="10sp"
+                                        android:textColor="@android:color/white"/>
+
+                                </LinearLayout>
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="@string/kategori_layanan"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:elevation="0dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="10dp"
+                tools:targetApi="o">
+
+                <HorizontalScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:fillViewport="true"
+                    android:measureAllChildren="false"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorBackground"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="7dp"
+                            tools:targetApi="o">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:background="@color/colorPrimaryDark"/>
+
+                                <ImageView
+                                    android:id="@+id/img_icon_sr"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginStart="18dp"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="14dp"
+                                    android:src="@drawable/history_surat" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img_icon_sr"
+                                    android:layout_alignStart="@+id/img_icon_sr"
+                                    android:layout_alignLeft="@+id/img_icon_sr"
+                                    android:layout_marginStart="-6dp"
+                                    android:layout_marginLeft="-6dp"
+                                    android:layout_marginTop="3dp"
+                                    android:text="Pengantar"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="8sp" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="7dp"
+                            tools:targetApi="o">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:background="@color/colorPengumuman"/>
+
+                                <ImageView
+                                    android:id="@+id/img_icon_pend"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginStart="18dp"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="14dp"
+                                    android:src="@drawable/penduduk"
+                                    app:tint="@android:color/black" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img_icon_pend"
+                                    android:layout_alignStart="@+id/img_icon_pend"
+                                    android:layout_alignLeft="@+id/img_icon_pend"
+                                    android:layout_marginStart="-6dp"
+                                    android:layout_marginLeft="-6dp"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/penduduk"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:textSize="8sp" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="7dp"
+                            tools:targetApi="o">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:background="@color/colorPengumuman"/>
+
+                                <ImageView
+                                    android:id="@+id/img_icon_ke"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginStart="18dp"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="14dp"
+                                    android:src="@drawable/keuangan" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img_icon_ke"
+                                    android:layout_alignStart="@+id/img_icon_ke"
+                                    android:layout_alignLeft="@+id/img_icon_ke"
+                                    android:layout_marginStart="-6dp"
+                                    android:layout_marginLeft="-6dp"
+                                    android:layout_marginTop="3dp"
+                                    android:text="Pengantar"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:textSize="8sp" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="7dp"
+                            tools:targetApi="o">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:background="@color/colorPengumuman"/>
+
+                                <ImageView
+                                    android:id="@+id/img_icon_kesr"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginStart="18dp"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="14dp"
+                                    android:src="@drawable/history_surat"
+                                    app:tint="@android:color/darker_gray" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img_icon_kesr"
+                                    android:layout_alignStart="@+id/img_icon_kesr"
+                                    android:layout_alignLeft="@+id/img_icon_kesr"
+                                    android:layout_marginStart="-6dp"
+                                    android:layout_marginLeft="-6dp"
+                                    android:layout_marginTop="3dp"
+                                    android:text="Sekretariat"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:textSize="8sp" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="7dp"
+                            tools:targetApi="o">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:background="@color/colorPengumuman"/>
+
+                                <ImageView
+                                    android:id="@+id/img_icon_per"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginStart="18dp"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="14dp"
+                                    android:src="@drawable/perencanaan"
+                                    app:tint="@android:color/darker_gray" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img_icon_per"
+                                    android:layout_alignStart="@+id/img_icon_per"
+                                    android:layout_alignLeft="@+id/img_icon_per"
+                                    android:layout_marginStart="-9dp"
+                                    android:layout_marginLeft="-9dp"
+                                    android:layout_marginTop="3dp"
+                                    android:text="Perencanaan"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:textSize="8sp" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="7dp"
+                            tools:targetApi="o">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:background="@color/colorPengumuman"/>
+
+                                <ImageView
+                                    android:id="@+id/img_icon_per2"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginStart="18dp"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="14dp"
+                                    android:src="@drawable/perencanaan"
+                                    app:tint="@android:color/darker_gray" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img_icon_per2"
+                                    android:layout_alignStart="@+id/img_icon_per2"
+                                    android:layout_alignLeft="@+id/img_icon_per2"
+                                    android:layout_marginStart="-9dp"
+                                    android:layout_marginLeft="-9dp"
+                                    android:layout_marginTop="3dp"
+                                    android:text="Perencanaan"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:textSize="8sp" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+            </androidx.cardview.widget.CardView>
+
+            <HorizontalScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:fillViewport="true"
+                android:measureAllChildren="false"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="50dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_terbaru"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="10dp"
+                            tools:targetApi="o">
+
+                            <ImageView
+                                android:id="@+id/img_btn_terbaru"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"
+                                android:scaleType="center"
+                                android:src="@android:color/holo_orange_dark" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginTop="9dp"
+                                    android:layout_marginBottom="12dp"
+                                    android:text="Terbaru"
+                                    android:textAlignment="center"
+                                    android:gravity="center_horizontal" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="50dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_srt_masuk"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="10dp"
+                            tools:targetApi="o">
+
+                            <ImageView
+                                android:id="@+id/img_btn_srt_masuk"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"
+                                android:scaleType="center"
+                                android:src="@android:color/darker_gray" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginTop="9dp"
+                                    android:layout_marginBottom="12dp"
+                                    android:text="@string/surat_masuk"
+                                    android:textAlignment="center"
+                                    android:gravity="center_horizontal" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="50dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_srt_keluar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="10dp"
+                            tools:targetApi="o">
+
+                            <ImageView
+                                android:id="@+id/img_btn_srt_keluar"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"
+                                android:scaleType="center"
+                                android:src="@android:color/darker_gray" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginTop="9dp"
+                                    android:layout_marginBottom="12dp"
+                                    android:text="Surat Keluar"
+                                    android:textAlignment="center"
+                                    android:gravity="center_horizontal" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="50dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_srt_ijin"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:elevation="0dp"
+                            android:layout_marginHorizontal="32dp"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="10dp"
+                            tools:targetApi="o">
+
+                            <ImageView
+                                android:id="@+id/img_btn_srt_ijin"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"
+                                android:scaleType="center"
+                                android:src="@android:color/darker_gray" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginTop="9dp"
+                                    android:layout_marginBottom="12dp"
+                                    android:text="Surat Ijin"
+                                    android:textAlignment="center"
+                                    android:gravity="center_horizontal" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="0dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="10dp"
+                    tools:targetApi="o">
+
+                    <ImageView
+                        android:id="@+id/pengumuman"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="center"
+                        android:src="@drawable/img_kerja_bakti" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img_putih"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="-40dp"
+                            android:src="@android:color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/img_putih"
+                            android:layout_alignStart="@+id/text_p"
+                            android:layout_alignLeft="@+id/text_p"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:text="Senin ,20 Januari 2021"
+                                android:textColor="@android:color/white"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:gravity="right"
+                                android:text="12.00 WIB"
+                                android:textColor="@android:color/white"
+                                android:textSize="10sp"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/txt_kat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/img_putih"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginLeft="23dp"
+                            android:layout_marginTop="8dp"
+                            android:textStyle="bold"
+                            android:text="Kerja Bakti"
+                            android:textColor="@color/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_kat"
+                            android:layout_alignStart="@+id/txt_kat"
+                            android:layout_alignLeft="@+id/txt_kat"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginTop="2dp"
+                            android:text="Kerja Bakti untuk membersihakn Jalan Desa"
+                            android:textSize="10sp" />
+
+                        <Button
+                            android:id="@+id/btn_detail"
+                            android:layout_width="69dp"
+                            android:layout_height="21dp"
+                            android:layout_alignTop="@+id/img_putih"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="21dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/background_button_daftar"
+                            android:text="Detail >"
+                            android:textColor="@android:color/white"
+                            android:textSize="6sp" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="0dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="10dp"
+                    tools:targetApi="o">
+
+                    <ImageView
+                        android:id="@+id/pengumuman2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="center"
+                        android:src="@drawable/img_kerja_bakti" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img_putih2"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="-40dp"
+                            android:src="@android:color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/img_putih2"
+                            android:layout_alignStart="@+id/text_p"
+                            android:layout_alignLeft="@+id/text_p"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:text="Senin ,20 Januari 2021"
+                                android:textColor="@android:color/white"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:gravity="right"
+                                android:text="12.00 WIB"
+                                android:textColor="@android:color/white"
+                                android:textSize="10sp"/>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/txt_kat2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/img_putih2"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginStart="23dp"
+                            android:layout_marginLeft="23dp"
+                            android:layout_marginTop="8dp"
+                            android:textStyle="bold"
+                            android:text="Kerja Bakti"
+                            android:textColor="@color/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_kat2"
+                            android:layout_alignStart="@+id/txt_kat2"
+                            android:layout_alignLeft="@+id/txt_kat2"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginTop="2dp"
+                            android:text="Kerja Bakti untuk membersihakn Jalan Desa"
+                            android:textSize="10sp" />
+
+                        <Button
+                            android:id="@+id/btn_detail2"
+                            android:layout_width="69dp"
+                            android:layout_height="21dp"
+                            android:layout_alignTop="@+id/img_putih2"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="21dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/background_button_daftar"
+                            android:text="Detail >"
+                            android:textColor="@android:color/white"
+                            android:textSize="6sp" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
