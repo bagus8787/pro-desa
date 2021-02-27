@@ -7,4 +7,5 @@
     <color name="colorBackground">#ddd</color>
 
     <color name="colorPengumuman">#E2E2E2</color>
+    <color name="colorTextInput">#838383</color>
 </resources>

@@ -57,6 +57,7 @@ public class AdapterListArtikel extends RecyclerView.Adapter<AdapterListArtikel.
     @Override
     public int getItemCount() {
         return (artikels != null) ? artikels.size() : 0;
+//        return Integer.MAX_VALUE;
     }
 
     public void setArtikels(ArrayList<Artikel> artikelss){

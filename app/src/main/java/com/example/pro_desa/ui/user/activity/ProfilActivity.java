@@ -58,6 +58,7 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
 
         RelativeLayout rv_logout    = findViewById(R.id.rv_logout);
         RelativeLayout rv_login_Web = findViewById(R.id.rv_login_web);
+        RelativeLayout rv_reset_pass= findViewById(R.id.rv_reset_pass);
 
         nama_pl.setText(sharedPrefManager.getSpNama());
         email_pl.setText(sharedPrefManager.getSpEmail());
@@ -68,6 +69,7 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
 
         rv_logout.setOnClickListener(this);
         rv_login_Web.setOnClickListener(this);
+        rv_reset_pass.setOnClickListener(this);
 
         btn_edit_profil.setOnClickListener(this);
     }
@@ -113,7 +115,14 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
                 break;
 
             case R.id.btn_edit_profil:
-                startActivity(new Intent(ProfilActivity.this, ProfilUserActivity.class));
+                startActivity(new Intent(ProfilActivity.this, ProfilUserActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                break;
+
+            case R.id.rv_reset_pass:
+                startActivity(new Intent(ProfilActivity.this, ResetPasswordActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                break;
 
         }
     }

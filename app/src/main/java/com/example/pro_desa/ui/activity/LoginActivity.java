@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void validate(TextView textView, String text) {
                 if (text.length() == 0){
-                    textView.setError("NIK harus diisi");
+                    textView.setError("Password harus diisi");
                 }
             }
         });

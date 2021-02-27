@@ -58,6 +58,10 @@ public class ProfilUserActivity extends AppCompatActivity {
             }
         });
 
+        txt_nik.setText(sharedPrefManager.getSpNik());
+        txt_nama.setText(sharedPrefManager.getSpNama());
+        txt_email.setText(sharedPrefManager.getSpEmail());
+
 
     }
 

@@ -40,10 +40,10 @@ public class ArtikelRepository {
             public void onResponse(Call<ArtikelResponse> call, Response<ArtikelResponse> response) {
                 if (response.code() >= 200 && response.code() < 300) {
                     artikelLiveData.postValue(response.body().getArtikelList().getArtikels());
-                    Log.d("isissssisiis", String.valueOf(response.body().getArtikelList().getArtikelUrl() != null));
+//                    Log.d("isissssisiis", String.valueOf(response.body().getArtikelList().getArtikelUrl() != null));
                     for (Artikel artikel: response.body().getArtikelList().getArtikels()){
 //                        artikel.getJudul();
-                        Log.d("judul", artikel.getJudul());
+//                        Log.d("judul", artikel.getJudul());
                     }
 
                 }

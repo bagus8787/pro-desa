@@ -32,7 +32,6 @@ public interface ApiInterface {
     @GET("api/login")
     Call<BaseResponse> baseResponse();
 
-
     @FormUrlEncoded
     @POST("api/login")
     Call<ResponseDataAwal> postLogin(@Field("email") String email,
@@ -65,6 +64,15 @@ public interface ApiInterface {
 //    Log Out
     @GET("api/logout/{id}")
     Call<LogOutResponse> log_out(@Path("id") int id);
+
+//    Ganti password
+    @FormUrlEncoded
+    @POST("api/account/update-password/{nik}")
+    Call<BaseResponse> resetPassword (
+            @Header("App-Token") String app_token,
+            @Header("ProDesa-Token") String prodesa_token,
+            @Path("nik") String nik,
+            @Field("password") String pasword);
 
 //    Get Artikel
     @GET("api/artikel/{appDesaCode}/all")

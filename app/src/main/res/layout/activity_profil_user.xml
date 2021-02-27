@@ -65,7 +65,7 @@
                     android:backgroundTint="@color/colorPengumuman"
                     android:hint="NIK"
                     android:paddingLeft="20dp"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/colorTextInput"
                     android:textSize="14sp" />
 
                 <TextView
@@ -88,7 +88,7 @@
                     android:backgroundTint="@color/colorPengumuman"
                     android:hint="Nama"
                     android:paddingLeft="20dp"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/colorTextInput"
                     android:textSize="14sp" />
 
                 <TextView
@@ -111,7 +111,7 @@
                     android:backgroundTint="@color/colorPengumuman"
                     android:hint="Email"
                     android:paddingLeft="20dp"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/colorTextInput"
                     android:textSize="14sp" />
 
                 <TextView
@@ -135,7 +135,7 @@
                     android:backgroundTint="@color/colorPengumuman"
                     android:hint="NIK"
                     android:paddingLeft="20dp"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/colorTextInput"
                     android:textSize="14sp" />
 
             </LinearLayout>
