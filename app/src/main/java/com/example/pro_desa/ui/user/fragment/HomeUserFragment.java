@@ -124,15 +124,15 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(adapterListArtikel);
 
-        shimmerFrameLayout.stopShimmer();
-        shimmerFrameLayout.setVisibility(View.GONE);
+//        shimmerFrameLayout.stopShimmer();
+//        shimmerFrameLayout.setVisibility(View.GONE);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
 
-//                shimmerFrameLayout.startShimmer();
+                shimmerFrameLayout.startShimmer();
 //                shimmerFrameLayout.setVisibility(View.GONE);
             }
         });

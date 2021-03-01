@@ -21,7 +21,7 @@
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
                         android:scaleType="center"
-                        android:src="@drawable/img_kerja_bakti" />
+                        android:src="@drawable/bg_null" />
 
                     <TextView
                         android:id="@+id/txt_judul_berita"

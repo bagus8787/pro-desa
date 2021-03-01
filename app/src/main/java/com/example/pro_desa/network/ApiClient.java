@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     //    private static final String url = "http://secret-mesa-52942.herokuapp.com/";
-    private static final String url = "http://222.124.168.221:8500/demo/prodesa/";
+    private static final String url = "http://222.124.168.221:8500/demo/prodesa/api/v1/";
     private static ApiInterface REST_CLIENT;
 
     private static Retrofit retrofit;

@@ -17,12 +17,14 @@ import android.widget.TextView;
 import com.example.pro_desa.R;
 import com.example.pro_desa.model.Artikel;
 import com.example.pro_desa.ui.user.HomeUserActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class DetailArtikelActivity extends AppCompatActivity {
     int IT_ID;
-    String IT_JUDUL, IT_ISI, IT_TGL_UPLOAD;
+    String IT_JUDUL, IT_ISI, IT_TGL_UPLOAD, IT_URL_GAMBAR;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +34,16 @@ public class DetailArtikelActivity extends AppCompatActivity {
         IT_JUDUL = getIntent().getStringExtra("IT_JUDUL");
         IT_ISI = getIntent().getStringExtra("IT_ISI");
         IT_TGL_UPLOAD = getIntent().getStringExtra("IT_TGL_UPLOAD");
+        IT_URL_GAMBAR = getIntent().getStringExtra("IT_URL_GAMBAR");
 
         TextView judul  = findViewById(R.id.txt_judul_artikel);
         TextView tgl_upload = findViewById(R.id.txt_tgl_upload_artikel);
+        ImageView img_gambar = findViewById(R.id.img_detail_artikel);
+
+        Picasso.with(getApplicationContext())
+                .load(IT_URL_GAMBAR)
+                .error(R.drawable.bg_null)
+                .into(img_gambar);
 
         ImageView img_btn_back = findViewById(R.id.img_btn_back);
         img_btn_back.setOnClickListener(new View.OnClickListener() {
@@ -56,9 +65,6 @@ public class DetailArtikelActivity extends AppCompatActivity {
         judul.setText(IT_JUDUL);
 //        isi.setText(IT_ISI);
         tgl_upload.setText(IT_TGL_UPLOAD);
-
-        Log.d("id", String.valueOf(IT_ID));
-        Log.d("judul", IT_ISI);
 
     }
 }

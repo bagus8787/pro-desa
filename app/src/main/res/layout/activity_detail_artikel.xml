@@ -13,16 +13,17 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/img_detail_art"
+            android:id="@+id/img_detail_artikel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-20dp"
-            android:layout_marginLeft="-20dp"
-            android:layout_marginTop="-30dp"
-            android:layout_marginEnd="-20dp"
-            android:layout_marginRight="-20dp"
+            android:layout_height="250dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
             android:scaleType="fitXY"
-            android:src="@drawable/img_kerja_bakti" />
+            android:src="@drawable/bg_null" />
 
     </RelativeLayout>
 

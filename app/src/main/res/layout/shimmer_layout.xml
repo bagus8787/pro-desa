@@ -35,10 +35,10 @@
             android:layout_marginLeft="26dp"
             android:layout_marginBottom="1dp"
             android:gravity="start"
-            android:background="@color/colorPengumuman"
+            android:background="#B3B3B3"
             android:text="Kerja Bakti Desa Siman, Kabupaten Ponorogo"
             android:textAlignment="textStart"
-            android:textColor="@color/colorPengumuman"
+            android:textColor="#B3B3B3"
             android:textStyle="bold" />
 
         <TextView
@@ -51,9 +51,9 @@
             android:layout_marginStart="26dp"
             android:layout_marginLeft="26dp"
             android:layout_marginBottom="15dp"
-            android:background="@color/colorPengumuman"
+            android:background="#B3B3B3"
             android:text="2 Januari 2021"
-            android:textColor="@color/colorPengumuman"
+            android:textColor="#B3B3B3"
             android:textSize="10sp" />
 
         <TextView
@@ -66,7 +66,7 @@
             android:layout_marginRight="13dp"
             android:layout_marginBottom="5dp"
             android:text="Read More >"
-            android:textColor="@android:color/white"
+            android:textColor="#B3B3B3"
             android:textSize="10sp" />
 
     </RelativeLayout>

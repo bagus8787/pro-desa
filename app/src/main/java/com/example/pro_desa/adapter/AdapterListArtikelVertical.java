@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import com.example.pro_desa.R;
 import com.example.pro_desa.model.Artikel;
 import com.example.pro_desa.ui.user.activity.DetailArtikelActivity;
 import com.example.pro_desa.utils.SharedPrefManager;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -47,6 +49,8 @@ public class AdapterListArtikelVertical extends RecyclerView.Adapter<AdapterList
         holder.setJudul(artikels.get(position).getJudul());
         holder.setTgl_upload(artikels.get(position).getTgl_upload());
         holder.setIsi(artikels.get(position).getIsi());
+        holder.setPhoto(artikels.get(position).getGambar());
+
     }
 
     @Override
@@ -65,9 +69,10 @@ public class AdapterListArtikelVertical extends RecyclerView.Adapter<AdapterList
     public class ArtikelViewHolder extends RecyclerView.ViewHolder{
         View mView;
         int id;
-        String judul, isi, tgl_upload;
+        String judul, isi, tgl_upload, url_gambar;
 
         TextView rvJudul, rvTglUpload, rvIsi;
+        ImageView rv_img_berita;
 
         public ArtikelViewHolder(View itemView){
             super(itemView);
@@ -82,6 +87,7 @@ public class AdapterListArtikelVertical extends RecyclerView.Adapter<AdapterList
                             .putExtra("IT_JUDUL", judul)
                             .putExtra("IT_ISI", isi)
                             .putExtra("IT_TGL_UPLOAD", tgl_upload)
+                            .putExtra("IT_URL_GAMBAR", url_gambar)
                     );
 
                 }
@@ -112,6 +118,23 @@ public class AdapterListArtikelVertical extends RecyclerView.Adapter<AdapterList
             rvIsi.setText(isi.toUpperCase());
 
             Log.d("ISI", String.valueOf(isi));
+        }
+
+        public void setPhoto(String gambar) {
+            this.url_gambar = gambar;
+//            http://222.124.168.221:8500/demo/prodesa/
+            url_gambar = "http://222.124.168.221:8500/demo/prodesa-putat/desa/upload/artikel/" + gambar;
+
+            Log.d("url_gambar", url_gambar);
+
+            rv_img_berita = mView.findViewById(R.id.img_art);
+
+            rv_img_berita.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+            Picasso.with(context)
+                    .load(url_gambar)
+                    .into(rv_img_berita);
+
         }
     }
 

@@ -29,16 +29,16 @@ public interface ApiInterface {
     @Headers({"Accept: application/json"})
 
 //    BASERESPONSE
-    @GET("api/login")
+    @GET("login")
     Call<BaseResponse> baseResponse();
 
     @FormUrlEncoded
-    @POST("api/login")
+    @POST("login")
     Call<ResponseDataAwal> postLogin(@Field("email") String email,
                                      @Field("password") String password);
 
     @FormUrlEncoded
-    @POST("api/register")
+    @POST("register")
     Call<RegisterResponse> postRegister(
             @Field("nik") String nik,
             @Field("fullname") String fullname,
@@ -54,7 +54,7 @@ public interface ApiInterface {
             @Field("asal_desa_id") long asal_desa_id);
 
     //user
-    @GET("api/account/profile/{appDesaCode}/{nik}")
+    @GET("account/profile/{appDesaCode}/{nik}")
     Call<UserResponse> getUser(@Header("App-Token") String app_token,
                        @Header("ProDesa-Token") String prodesa_token,
                        @Path("appDesaCode") String appdesa_code,
@@ -62,12 +62,12 @@ public interface ApiInterface {
     );
 
 //    Log Out
-    @GET("api/logout/{id}")
+    @GET("logout/{id}")
     Call<LogOutResponse> log_out(@Path("id") int id);
 
 //    Ganti password
     @FormUrlEncoded
-    @POST("api/account/update-password/{nik}")
+    @POST("account/update-password/{nik}")
     Call<BaseResponse> resetPassword (
             @Header("App-Token") String app_token,
             @Header("ProDesa-Token") String prodesa_token,
@@ -75,29 +75,28 @@ public interface ApiInterface {
             @Field("password") String pasword);
 
 //    Get Artikel
-    @GET("api/artikel/{appDesaCode}/all")
+    @GET("artikel/{appDesaCode}/all")
     Call<ArtikelResponse> getArtikel(@Header("app-token") String app_token,
                                      @Header("prodesa-token") String prodesa_token,
                                      @Path("appDesaCode") String appdesa_code
     );
 
 //    Get Pengaduan
-    @GET("api/pengaduan/{appDesaCode}/all")
+    @GET("pengaduan/{appDesaCode}/all")
     Call<PengaduanResponse> getPengaduan(@Header("app-token") String app_token,
                                          @Header("prodesa-token") String prodesa_token,
                                          @Path("appDesaCode") String appdesa_code
     );
 
     //    Get Bantuan
-    @GET("api/pengaduan/{appDesaCode}/all")
+    @GET("pengaduan/{appDesaCode}/all")
     Call<BantuanResponse> getBantuan(@Header("app-token") String app_token,
                                        @Header("prodesa-token") String prodesa_token,
                                        @Path("appDesaCode") String appdesa_code
     );
 
-//    http://222.124.168.221:8500/demo/prodesa/api/pengumuman/3403042009/all-masyarakat/3502082208970002
     //    Get Pengumuman
-    @GET("api/pengumuman/{appDesaCode}/all-masyarakat/{nik}")
+    @GET("pengumuman/{appDesaCode}/all-masyarakat/{nik}")
     Call<PengumumanResponse> getPengumuman(@Header("app-token") String app_token,
                                            @Header("prodesa-token") String prodesa_token,
                                            @Path("appDesaCode") String appdesa_code,
@@ -105,19 +104,19 @@ public interface ApiInterface {
     );
 
     //    getProv
-    @GET("api/get-provinsi")
+    @GET("get-provinsi")
     Call<ProvinsiResponse> getProv();
 
     //    getKab
-    @GET("api/get-kabupaten/{provinsi_id}")
+    @GET("get-kabupaten/{provinsi_id}")
     Call<KabupatenResponse> getKab(@Path("provinsi_id") String provinsi_id);
 
     //    getKec
-    @GET("api/get-kecamatan/{kabupaten_id}")
+    @GET("get-kecamatan/{kabupaten_id}")
     Call<KecamatanResponse> getKec(@Path("kabupaten_id") String kabupaten_id);
 
     //    getDesa
-    @GET("api/get-kelurahan/{kecamatan_id}")
+    @GET("get-kelurahan/{kecamatan_id}")
     Call<DesaResponse> getDesa(@Path("kecamatan_id") String kecamatan_id);
 
 

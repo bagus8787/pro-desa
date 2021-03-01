@@ -37,11 +37,12 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="-6dp"
-                android:layout_marginLeft="-6dp"
-                android:layout_marginTop="-8dp"
-                android:layout_marginBottom="-20dp"
-                android:background="@drawable/img_kerja_bakti"
+                android:layout_marginStart="-5dp"
+                android:layout_marginLeft="-5dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/bg_null"
+                android:adjustViewBounds="true"
                 android:scaleType="centerCrop" />
 
             <TextView
