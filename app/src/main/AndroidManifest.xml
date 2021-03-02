@@ -15,7 +15,7 @@
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
-        android:smallScreens="true"/>
+        android:smallScreens="true" />
 
     <application
         android:name=".Myapp"
@@ -27,7 +27,9 @@
         android:roundIcon="@mipmap/ic_pd2_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.user.activity.ResetPasswordActivity"/>
+        <activity android:name=".ui.user.activity.SyaratPermohonanSuratActivity"></activity>
+        <activity android:name=".ui.user.activity.PermohonanSuratActivity" />
+        <activity android:name=".ui.user.activity.ResetPasswordActivity" />
         <activity android:name=".ui.user.activity.ProfilUserActivity" />
         <activity android:name=".NotificationReceiverActivity" />
         <activity android:name=".CobaNotif" />
@@ -57,9 +59,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"/>
-
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
     </application>
 
 </manifest>

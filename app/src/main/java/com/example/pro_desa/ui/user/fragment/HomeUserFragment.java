@@ -6,56 +6,43 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.pro_desa.CobaNotif;
 import com.example.pro_desa.Myapp;
 import com.example.pro_desa.R;
 import com.example.pro_desa.adapter.AdapterListArtikel;
 import com.example.pro_desa.model.Artikel;
-import com.example.pro_desa.model.User;
-import com.example.pro_desa.network.ApiClient;
 import com.example.pro_desa.network.ApiInterface;
 import com.example.pro_desa.repository.ArtikelRepository;
-import com.example.pro_desa.repository.PengumumanRepository;
 import com.example.pro_desa.ui.user.activity.ArtikelActivity;
 import com.example.pro_desa.ui.user.activity.BantuanActivity;
-import com.example.pro_desa.ui.user.activity.DetailArtikelActivity;
+import com.example.pro_desa.ui.user.activity.DetailPengumumanActivity;
 import com.example.pro_desa.ui.user.activity.PengaduanActivity;
+import com.example.pro_desa.ui.user.activity.PermohonanSuratActivity;
 import com.example.pro_desa.ui.user.activity.ProfilActivity;
 import com.example.pro_desa.utils.SharedPrefManager;
 import com.example.pro_desa.viewmodels.ArtikelViewModel;
-import com.example.pro_desa.viewmodels.BantuanViewModel;
-import com.example.pro_desa.viewmodels.PengaduanViewModel;
-import com.example.pro_desa.viewmodels.PengumumanViewModel;
-import com.example.pro_desa.viewmodels.ProfileViewModel;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.Timer;
+import org.apache.commons.lang3.StringUtils;
 
-import static com.example.pro_desa.Myapp.getContext;
+import java.util.ArrayList;
 
 public class HomeUserFragment extends Fragment implements View.OnClickListener {
 
@@ -117,6 +104,7 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
         LinearLayout ln_ps  = rootView.findViewById(R.id.ln_ps);
         LinearLayout ln_pd  = rootView.findViewById(R.id.ln_pd);
         LinearLayout ln_pb  = rootView.findViewById(R.id.ln_pb);
+        Button btn_detail_pe = rootView.findViewById(R.id.btn_detail_pe);
 
         Picasso.with(getContext())
                 .load(sharedPrefManager.getSpAvatar())
@@ -124,13 +112,15 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
                 .error(R.drawable.user_no)
                 .into(img_profil);
 
-        tv_name.setText(sharedPrefManager.getSpNama());
+        tv_name.setText(StringUtils.capitalize(sharedPrefManager.getSpNama().toLowerCase().trim()));
+//        tv_name.setText(sharedPrefManager.getSpNama());
 
         ln_art.setOnClickListener(this);
         ln_ps.setOnClickListener(this);
         ln_pd.setOnClickListener(this);
         ln_pb.setOnClickListener(this);
         img_profil.setOnClickListener(this);
+        btn_detail_pe.setOnClickListener(this);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -252,12 +242,14 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.ln_ps:
-                FragmentManager fm = getFragmentManager();
-                assert fm != null;
-                FragmentTransaction ft = fm.beginTransaction();
-                HistorySuratUserFragment llf = new HistorySuratUserFragment();
-                ft.replace(R.id.layout_container, llf);
-                ft.commit();
+//                FragmentManager fm = getFragmentManager();
+//                assert fm != null;
+//                FragmentTransaction ft = fm.beginTransaction();
+//                HistorySuratUserFragment llf = new HistorySuratUserFragment();
+//                ft.replace(R.id.layout_container, llf);
+//                ft.commit();
+                Intent ps  = new Intent(getActivity(), PermohonanSuratActivity.class);
+                startActivity(ps);
                 break;
 
             case R.id.icon_profil:
@@ -265,10 +257,10 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
                 startActivity(icon_profil);
                 break;
 
-//            case R.id.icon_profil:
-//                Intent icon_profil  = new Intent(getActivity(), ProfilActivity.class);
-//                startActivity(icon_profil);
-//                break;
+            case R.id.btn_detail_pe:
+                Intent b  = new Intent(getActivity(), DetailPengumumanActivity.class);
+                startActivity(b);
+                break;
         }
     }
 }

@@ -40,6 +40,5 @@ public class DetailPengumumanActivity extends AppCompatActivity {
         tgl_mulai.setText(IT_TGL_MULAI);
         tgl_berakhir.setText(IT_TGL_BERAKHIR);
 
-
     }
 }

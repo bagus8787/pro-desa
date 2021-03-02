@@ -2,8 +2,11 @@ package com.example.pro_desa.ui.user.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pro_desa.R;
@@ -33,6 +36,14 @@ public class DetailPengaduanActivity extends AppCompatActivity {
         TextView desc       = findViewById(R.id.txt_desc_pe);
         TextView kategori   = findViewById(R.id.txt_kat_pe);
         TextView detail_lokasi  =   findViewById(R.id.txt_detail_lokasi);
+        ImageView img_btn_back  = findViewById(R.id.img_btn_back);
+        img_btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DetailPengaduanActivity.this, PengaduanActivity.class));
+                finish();
+            }
+        });
 
         judul.setText(StringUtils.capitalize(IT_JUDUL.toLowerCase().trim()));
         tgl_upload.setText(IT_TGL_UPLOAD);

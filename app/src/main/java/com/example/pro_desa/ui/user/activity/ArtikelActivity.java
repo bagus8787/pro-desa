@@ -14,6 +14,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
@@ -26,6 +27,7 @@ import com.example.pro_desa.model.Pengaduan;
 import com.example.pro_desa.network.ApiInterface;
 import com.example.pro_desa.repository.ArtikelRepository;
 import com.example.pro_desa.repository.PengaduanRepository;
+import com.example.pro_desa.ui.user.HomeUserActivity;
 import com.example.pro_desa.utils.SharedPrefManager;
 import com.example.pro_desa.viewmodels.ArtikelViewModel;
 import com.example.pro_desa.viewmodels.PengaduanViewModel;
@@ -50,6 +52,7 @@ public class ArtikelActivity extends AppCompatActivity implements View.OnClickLi
     SwipeRefreshLayout swipeRefreshLayout;
     RecyclerView recyclerView;
     SearchView searchView;
+    ImageView img_btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,8 @@ public class ArtikelActivity extends AppCompatActivity implements View.OnClickLi
         swipeRefreshLayout = findViewById(R.id.refresh_ly);
         linearLayout = findViewById(R.id.ln_kosong_art);
         recyclerView  = findViewById(R.id.rv_art_list);
+        img_btn_back = findViewById(R.id.img_btn_back);
+        img_btn_back.setOnClickListener(this);
 
         searchView = findViewById(R.id.search_view);
         searchView.onActionViewExpanded(); //new Added line
@@ -133,11 +138,11 @@ public class ArtikelActivity extends AppCompatActivity implements View.OnClickLi
     }
     @Override
     public void onClick(View view) {
-//        switch (view.getId()){
-//            case R.id.rv_art_list:
-//                Intent rv_art_list  = new Intent(this, DetailArtikelActivity.class);
-//                startActivity(rv_art_list);
-//        }
+        switch (view.getId()){
+            case R.id.img_btn_back:
+                Intent rv_art_list  = new Intent(this, HomeUserActivity.class);
+                startActivity(rv_art_list);
+        }
     }
 
     @Override

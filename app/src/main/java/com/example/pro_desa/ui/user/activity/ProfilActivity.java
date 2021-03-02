@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import com.example.pro_desa.network.ApiInterface;
 import com.example.pro_desa.network.response.BaseResponse;
 import com.example.pro_desa.network.response.LogOutResponse;
 import com.example.pro_desa.ui.activity.LoginActivity;
+import com.example.pro_desa.ui.user.HomeUserActivity;
 import com.example.pro_desa.utils.SharedPrefManager;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
@@ -58,6 +60,7 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
         TextView nama_pl    = findViewById(R.id.txt_nama_pl);
         TextView email_pl   = findViewById(R.id.txt_email_pl);
         TextView role_pl    = findViewById(R.id.txt_role_pl);
+        ImageView img_btn_back = findViewById(R.id.img_btn_back);
         Button btn_edit_profil = findViewById(R.id.btn_edit_profil);
 
         RelativeLayout rv_logout    = findViewById(R.id.rv_logout);
@@ -66,7 +69,7 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
 
         CircularImageView img_profil = findViewById(R.id.img_profil);
 
-        nama_pl.setText(sharedPrefManager.getSpNama());
+        nama_pl.setText(StringUtils.capitalize(sharedPrefManager.getSpNama().toLowerCase().trim()));
         email_pl.setText(sharedPrefManager.getSpEmail());
         role_pl.setText(StringUtils.capitalize(sharedPrefManager.getSpRole().toLowerCase().trim()));
         loginWeb = sharedPrefManager.getSpLoginWeb();
@@ -83,6 +86,7 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
         rv_login_Web.setOnClickListener(this);
         rv_reset_pass.setOnClickListener(this);
 
+        img_btn_back.setOnClickListener(this);
         btn_edit_profil.setOnClickListener(this);
     }
 
@@ -133,6 +137,11 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
 
             case R.id.rv_reset_pass:
                 startActivity(new Intent(ProfilActivity.this, ResetPasswordActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                break;
+
+            case R.id.img_btn_back:
+                startActivity(new Intent(ProfilActivity.this, HomeUserActivity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                 break;
 

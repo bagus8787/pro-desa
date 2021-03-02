@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 
@@ -20,6 +21,7 @@ import com.example.pro_desa.adapter.AdapterListPengaduan;
 import com.example.pro_desa.model.Pengaduan;
 import com.example.pro_desa.network.ApiInterface;
 import com.example.pro_desa.repository.PengaduanRepository;
+import com.example.pro_desa.ui.user.HomeUserActivity;
 import com.example.pro_desa.utils.SharedPrefManager;
 import com.example.pro_desa.viewmodels.PengaduanViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -52,6 +54,8 @@ public class PengaduanActivity extends AppCompatActivity implements View.OnClick
         SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.refresh_ly);
         LinearLayout linearLayout = findViewById(R.id.ln_kosong_pengaduan);
         RecyclerView recyclerView  = findViewById(R.id.rv_pengaduan);
+        ImageView img_btn_back = findViewById(R.id.img_btn_back);
+        img_btn_back.setOnClickListener(this);
 
         SearchView searchView = findViewById(R.id.search_view);
         searchView.onActionViewExpanded(); //new Added line
@@ -125,10 +129,9 @@ public class PengaduanActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-//            case R.id.rv_art_list:
-//                Intent art_list = new Intent(this, DetailPengaduanActivity.class);
-//                startActivity(art_list);
-//                break;
+            case R.id.img_btn_back:
+                startActivity(new Intent(PengaduanActivity.this, HomeUserActivity.class));
+                break;
 
             case R.id.fab_add:
                 Intent fab_add  = new Intent(this, FormPengaduanActivity.class);

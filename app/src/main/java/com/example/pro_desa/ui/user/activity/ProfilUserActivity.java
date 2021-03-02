@@ -62,7 +62,7 @@ public class ProfilUserActivity extends AppCompatActivity implements View.OnClic
 
     TextInputEditText txt_nik, txt_nama, txt_email;
     CircularImageView img_profil;
-    ImageView btn_updte_profil;
+    ImageView btn_updte_profil, img_btn_back;
     Button btn_edit_profil;
 
     Uri uri;
@@ -89,11 +89,13 @@ public class ProfilUserActivity extends AppCompatActivity implements View.OnClic
         txt_nama    = findViewById(R.id.ip_nama_pl);
         txt_email   = findViewById(R.id.ip_email_pl);
         img_profil = findViewById(R.id.img_profil);
+        img_btn_back = findViewById(R.id.img_btn_back);
         btn_updte_profil = findViewById(R.id.btn_upadte_img_profil);
         btn_edit_profil = findViewById(R.id.btn_edit_profil);
 
         btn_updte_profil.setOnClickListener(this);
         btn_edit_profil.setOnClickListener(this);
+        img_btn_back.setOnClickListener(this);
 
         profileViewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
         profileViewModel.init();
@@ -223,6 +225,10 @@ public class ProfilUserActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()){
             case R.id.btn_upadte_img_profil:
                 choosePhoto();
+                break;
+
+            case R.id.img_btn_back:
+                startActivity(new Intent(ProfilUserActivity.this, ProfilActivity.class));
                 break;
 
             case R.id.btn_edit_profil:

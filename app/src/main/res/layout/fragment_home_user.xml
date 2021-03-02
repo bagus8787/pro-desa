@@ -37,7 +37,6 @@
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="2dp"
                         android:layout_marginRight="2dp"
-                        android:src="@drawable/user_no"
                         app:civ_border_color="@android:color/darker_gray"
                         app:civ_border_width="2dp"/>
 
@@ -55,7 +54,7 @@
                         android:textSize="24sp"
                         android:textColor="@android:color/black"
                         android:textStyle="bold"
-                        android:text="Hello,"/>
+                        android:text="Hallo,"/>
 
                     <TextView
                         android:id="@+id/txt_nama"
@@ -370,7 +369,7 @@
                                     android:textSize="10sp" />
 
                                 <Button
-                                    android:id="@+id/btn_detail"
+                                    android:id="@+id/btn_detail_pe"
                                     android:layout_width="69dp"
                                     android:layout_height="21dp"
                                     android:layout_alignTop="@+id/img_putih"

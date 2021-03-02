@@ -7,8 +7,10 @@ import com.example.pro_desa.network.response.BaseResponse;
 import com.example.pro_desa.network.response.LogOutResponse;
 import com.example.pro_desa.network.response.PengaduanResponse;
 import com.example.pro_desa.network.response.PengumumanResponse;
+import com.example.pro_desa.network.response.PermohonanSuratResponse;
 import com.example.pro_desa.network.response.RegisterResponse;
 import com.example.pro_desa.network.response.ResponseDataAwal;
+import com.example.pro_desa.network.response.SyaratPermohonanSuratResponse;
 import com.example.pro_desa.network.response.UserResponse;
 import com.example.pro_desa.network.response.region_response.DesaResponse;
 import com.example.pro_desa.network.response.region_response.KabupatenResponse;
@@ -74,6 +76,23 @@ public interface ApiInterface {
 //    Log Out
     @GET("logout/{id}")
     Call<LogOutResponse> log_out(@Path("id") int id);
+
+//    ListPermohonanSurat
+    @GET("list-surat/{appDesaCode}/all")
+    Call<PermohonanSuratResponse> getPermohonanSurat(
+            @Header("App-Token") String app_token,
+            @Header("ProDesa-Token") String prodesa_token,
+            @Path("appDesaCode") String appdesa_code
+    );
+
+//    SyaratPermohonanSurat
+    @GET("list-surat/{appDesaCode}/syarat/{id_leter}")
+    Call<SyaratPermohonanSuratResponse> getSyaratPermohonanSurat(
+            @Header("App-Token") String app_token,
+            @Header("ProDesa-Token") String prodesa_token,
+            @Path("appDesaCode") String appdesa_code,
+            @Path("id_leter") String id_leter
+    );
 
 //    Ganti password
     @FormUrlEncoded

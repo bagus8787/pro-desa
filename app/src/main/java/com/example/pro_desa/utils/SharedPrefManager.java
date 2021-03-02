@@ -30,6 +30,7 @@ public class SharedPrefManager {
     public static final String SP_CUR_USER_ID = "spCurrentUserId";
     public static final String SP_HAS_MASYARAKAT = "spHasMasyarakat";
 
+    public static final String SP_ID_LETER = "spIdLeter";
 
     SharedPreferences sp;
     SharedPreferences.Editor spEditor;
@@ -124,6 +125,10 @@ public class SharedPrefManager {
 
     public boolean hasMasyarakat() {
         return sp.getBoolean(SP_HAS_MASYARAKAT, false);
+    }
+
+    public String getSpIdLeter() {
+        return sp.getString(SP_ID_LETER, "");
     }
 
     public void setSpNama(String SpNama) {

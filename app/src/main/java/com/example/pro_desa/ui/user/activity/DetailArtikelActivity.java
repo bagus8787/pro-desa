@@ -39,19 +39,19 @@ public class DetailArtikelActivity extends AppCompatActivity {
         TextView judul  = findViewById(R.id.txt_judul_artikel);
         TextView tgl_upload = findViewById(R.id.txt_tgl_upload_artikel);
         ImageView img_gambar = findViewById(R.id.img_detail_artikel);
+        ImageView img_btn_back = findViewById(R.id.img_btn_back);
+        img_btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(DetailArtikelActivity.this, Artikel.class));
+                onBackPressed();
+            }
+        });
 
         Picasso.with(getApplicationContext())
                 .load(IT_URL_GAMBAR)
                 .error(R.drawable.bg_null)
                 .into(img_gambar);
-
-        ImageView img_btn_back = findViewById(R.id.img_btn_back);
-        img_btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DetailArtikelActivity.this, HomeUserActivity.class));
-            }
-        });
 
         //Isi
         WebView view = findViewById(R.id.txt_isi_artikel);
@@ -66,5 +66,10 @@ public class DetailArtikelActivity extends AppCompatActivity {
 //        isi.setText(IT_ISI);
         tgl_upload.setText(IT_TGL_UPLOAD);
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
     }
 }
