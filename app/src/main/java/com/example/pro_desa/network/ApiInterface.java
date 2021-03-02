@@ -16,13 +16,16 @@ import com.example.pro_desa.network.response.region_response.KecamatanResponse;
 import com.example.pro_desa.network.response.region_response.ProvinsiResponse;
 import com.google.gson.annotations.Expose;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface ApiInterface {
@@ -32,11 +35,13 @@ public interface ApiInterface {
     @GET("login")
     Call<BaseResponse> baseResponse();
 
+//Login
     @FormUrlEncoded
     @POST("login")
     Call<ResponseDataAwal> postLogin(@Field("email") String email,
                                      @Field("password") String password);
 
+//Register
     @FormUrlEncoded
     @POST("register")
     Call<RegisterResponse> postRegister(
@@ -51,7 +56,12 @@ public interface ApiInterface {
             @Field("asal_provinsi_id") Integer asal_provinsi_id,
             @Field("asal_kota_id") Integer asal_kota_id,
             @Field("asal_kec_id") Integer asal_kec_id,
-            @Field("asal_desa_id") long asal_desa_id);
+            @Field("asal_desa_id") long asal_desa_id
+    );
+
+    @Multipart
+    @POST("account/update-foto")
+    Call<BaseResponse> updateProfil(@Part MultipartBody.Part file);
 
     //user
     @GET("account/profile/{appDesaCode}/{nik}")

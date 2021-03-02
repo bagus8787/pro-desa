@@ -22,6 +22,10 @@ import com.example.pro_desa.network.response.BaseResponse;
 import com.example.pro_desa.network.response.LogOutResponse;
 import com.example.pro_desa.ui.activity.LoginActivity;
 import com.example.pro_desa.utils.SharedPrefManager;
+import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
+
+import org.apache.commons.lang3.StringUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,11 +64,19 @@ public class ProfilActivity extends AppCompatActivity implements View.OnClickLis
         RelativeLayout rv_login_Web = findViewById(R.id.rv_login_web);
         RelativeLayout rv_reset_pass= findViewById(R.id.rv_reset_pass);
 
+        CircularImageView img_profil = findViewById(R.id.img_profil);
+
         nama_pl.setText(sharedPrefManager.getSpNama());
         email_pl.setText(sharedPrefManager.getSpEmail());
-        role_pl.setText(sharedPrefManager.getSpRole());
+        role_pl.setText(StringUtils.capitalize(sharedPrefManager.getSpRole().toLowerCase().trim()));
         loginWeb = sharedPrefManager.getSpLoginWeb();
 
+        Log.d("fotou", sharedPrefManager.getSpAvatar());
+        Picasso.with(getContext())
+                .load(sharedPrefManager.getSpAvatar())
+                .fit().centerCrop()
+                .error(R.drawable.user_no)
+                .into(img_profil);
 //        nama_pl.setText(sharedPrefManager.getSpNama());
 
         rv_logout.setOnClickListener(this);

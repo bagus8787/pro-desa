@@ -23,52 +23,39 @@
             android:scaleType="fitXY"
             android:src="@drawable/tanah_longsor" />
 
-        <ImageView
-            android:id="@+id/img_icon_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="25dp"
-            android:src="@drawable/ic_baseline_arrow_back"/>
-
-        <TextView
-            android:id="@+id/text_detail"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/img_icon_back"
-            android:layout_alignStart="@+id/img_icon_back"
-            android:layout_alignLeft="@+id/img_icon_back"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="4dp"
-            android:textColor="@android:color/white"
-            android:text="Detail"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/text_p"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text_detail"
-            android:layout_alignStart="@+id/text_detail"
-            android:layout_alignLeft="@+id/text_detail"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="0dp"
-            android:text="Pengaduan"
-            android:textColor="@android:color/white"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/img_icon_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/ic_baseline_arrow_back"/>
+
+            <TextView
+                android:id="@+id/text_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Detail Pengaduan"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/text_p"
             android:layout_alignLeft="@+id/text_p"
+            android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginBottom="80dp"
             android:orientation="horizontal">
 
@@ -83,20 +70,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="3dp"
-                android:textStyle="italic"
-                android:textColor="@android:color/white"
                 android:text="24 Januari 2021,"
-                android:textSize="12sp" />
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="italic" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="3dp"
-                android:textStyle="italic"
-                android:textColor="@android:color/white"
                 android:text="12.00 WIB"
-                android:textSize="12sp" />
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="italic" />
 
         </LinearLayout>
 

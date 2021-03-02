@@ -18,6 +18,8 @@ public class User implements Parcelable {
     @Expose
     @SerializedName("email") String email;
     @Expose
+    @SerializedName("foto") String foto;
+    @Expose
     @SerializedName("token") String token;
     @Expose
     @SerializedName("fcm_key") String fcm_key;
@@ -110,6 +112,14 @@ public class User implements Parcelable {
         this.email = email;
     }
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
     public String getToken() {
         return token;
     }
@@ -180,6 +190,8 @@ public class User implements Parcelable {
         dest.writeString(this.email);
         dest.writeString(this.token);
         dest.writeString(this.fcm_key);
+        dest.writeString(this.foto);
+
         dest.writeInt(this.asal_provinsi_id);
         dest.writeInt(this.asal_kota_id);
         dest.writeInt(this.asal_kecamatan_id);
@@ -187,11 +199,12 @@ public class User implements Parcelable {
         dest.writeString(this.login_url_web);
     }
 
-    public User(int id, String nik, String fullname, String email,String token,String fcm_key,int asal_provinsi_id,int asal_kota_id,int asal_kecamatan_id,long asal_kelurahan_id,String login_url_web) {
+    public User(int id, String nik, String fullname, String email, String foto,String token,String fcm_key,int asal_provinsi_id,int asal_kota_id,int asal_kecamatan_id,long asal_kelurahan_id,String login_url_web) {
         this.id = id;
         this.nik = nik;
         this.fullname = fullname;
         this.email = email;
+        this.foto = foto;
         this.token = token;
         this.fcm_key = fcm_key;
 
@@ -211,6 +224,7 @@ public class User implements Parcelable {
         this.email = in.readString();
         this.token = in.readString();
         this.fcm_key = in.readString();
+        this.foto = in.readString();
         this.asal_provinsi_id = in.readInt();
         this.asal_kota_id = in.readInt();
         this.asal_kecamatan_id = in.readInt();

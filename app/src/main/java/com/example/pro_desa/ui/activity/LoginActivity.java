@@ -132,6 +132,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, user.getFullname());
                             sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, user.getEmail());
                             sharedPrefManager.saveSPString(SharedPrefManager.SP_LOGIN_WEB, user.getLogin_url_web());
+                            sharedPrefManager.saveSPString(SharedPrefManager.SP_AVATAR, user.getFoto());
+
+//                            Log.d("foto", response.body().getResponseData().getUserData().getFoto());
 
 //                            sharedPrefManager.saveSPString(SharedPrefManager.SP_ROLE, user.getRole_name());
 

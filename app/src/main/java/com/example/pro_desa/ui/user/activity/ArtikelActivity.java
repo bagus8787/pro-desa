@@ -46,6 +46,11 @@ public class ArtikelActivity extends AppCompatActivity implements View.OnClickLi
     ArtikelViewModel artikelViewModel;
     ArtikelRepository artikelRepository;
 
+    LinearLayout linearLayout;
+    SwipeRefreshLayout swipeRefreshLayout;
+    RecyclerView recyclerView;
+    SearchView searchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +62,11 @@ public class ArtikelActivity extends AppCompatActivity implements View.OnClickLi
 
         artikelRepository = new ArtikelRepository();
 
-        SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.refresh_ly);
-        LinearLayout linearLayout = findViewById(R.id.ln_kosong_art);
-        RecyclerView recyclerView  = findViewById(R.id.rv_art_list);
+        swipeRefreshLayout = findViewById(R.id.refresh_ly);
+        linearLayout = findViewById(R.id.ln_kosong_art);
+        recyclerView  = findViewById(R.id.rv_art_list);
 
-        SearchView searchView = findViewById(R.id.search_view);
+        searchView = findViewById(R.id.search_view);
         searchView.onActionViewExpanded(); //new Added line
         searchView.setIconifiedByDefault(false);
         searchView.setQueryHint("Cari artikel");

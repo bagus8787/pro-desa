@@ -130,6 +130,5 @@ public class SharedPrefManager {
         if (!SpNama.equals(""))
             saveSPString(SharedPrefManager.SP_NAMA, SpNama);
     }
-
 }
 

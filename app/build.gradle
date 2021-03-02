@@ -75,6 +75,10 @@ dependencies {
 
 //    InputSearch
     implementation 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1'
+    
+//    CropImage
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+    implementation 'pub.devrel:easypermissions:1.2.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

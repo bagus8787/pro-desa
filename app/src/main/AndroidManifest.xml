@@ -11,6 +11,12 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
 
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"/>
+
     <application
         android:name=".Myapp"
         android:allowBackup="true"
@@ -51,6 +57,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"/>
+
     </application>
 
 </manifest>

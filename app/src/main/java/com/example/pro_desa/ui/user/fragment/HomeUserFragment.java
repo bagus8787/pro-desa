@@ -49,9 +49,13 @@ import com.example.pro_desa.viewmodels.PengaduanViewModel;
 import com.example.pro_desa.viewmodels.PengumumanViewModel;
 import com.example.pro_desa.viewmodels.ProfileViewModel;
 import com.facebook.shimmer.ShimmerFrameLayout;
+import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Timer;
+
+import static com.example.pro_desa.Myapp.getContext;
 
 public class HomeUserFragment extends Fragment implements View.OnClickListener {
 
@@ -108,11 +112,19 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
         SwipeRefreshLayout swipeRefreshLayout = rootView.findViewById(R.id.refresh_ly);
 
         recyclerView  = rootView.findViewById(R.id.rv_berita);
-        ImageView img_profil    = rootView.findViewById(R.id.icon_profil) ;
+        CircularImageView img_profil    = rootView.findViewById(R.id.icon_profil) ;
         LinearLayout ln_art = rootView.findViewById(R.id.ln_art);
         LinearLayout ln_ps  = rootView.findViewById(R.id.ln_ps);
         LinearLayout ln_pd  = rootView.findViewById(R.id.ln_pd);
         LinearLayout ln_pb  = rootView.findViewById(R.id.ln_pb);
+
+        Picasso.with(getContext())
+                .load(sharedPrefManager.getSpAvatar())
+                .fit().centerCrop()
+                .error(R.drawable.user_no)
+                .into(img_profil);
+
+        tv_name.setText(sharedPrefManager.getSpNama());
 
         ln_art.setOnClickListener(this);
         ln_ps.setOnClickListener(this);
@@ -136,8 +148,6 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
 //                shimmerFrameLayout.setVisibility(View.GONE);
             }
         });
-
-        tv_name.setText(sharedPrefManager.getSpNama());
 
         return rootView;
     }
