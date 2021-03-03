@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txt_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:text="1." />
+
+    <TextView
+        android:id="@+id/txt_nama_syarat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/txt_no"
+        android:text="Surat Pengantar RW"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_upload_syarat"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="Pilih File"
+        android:textSize="8sp"
+        android:layout_below="@+id/txt_nama_syarat"
+        android:layout_alignStart="@+id/txt_nama_syarat"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="1dp"/>
+
+</RelativeLayout>

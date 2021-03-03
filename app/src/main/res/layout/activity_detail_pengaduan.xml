@@ -21,7 +21,7 @@
             android:layout_marginEnd="-20dp"
             android:layout_marginRight="-20dp"
             android:scaleType="fitXY"
-            android:src="@drawable/tanah_longsor" />
+            android:src="@drawable/bg_null" />
 
         <LinearLayout
             android:layout_width="match_parent"

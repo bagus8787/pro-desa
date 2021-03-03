@@ -1,6 +1,5 @@
 package com.example.pro_desa.network;
 
-import com.example.pro_desa.model.Pengumuman;
 import com.example.pro_desa.network.response.ArtikelResponse;
 import com.example.pro_desa.network.response.BantuanResponse;
 import com.example.pro_desa.network.response.BaseResponse;
@@ -12,13 +11,15 @@ import com.example.pro_desa.network.response.RegisterResponse;
 import com.example.pro_desa.network.response.ResponseDataAwal;
 import com.example.pro_desa.network.response.SyaratPermohonanSuratResponse;
 import com.example.pro_desa.network.response.UserResponse;
+import com.example.pro_desa.model.ListKategoriPengaduan;
+import com.example.pro_desa.network.response.kategori_response.KategoriPengaduanResponse;
 import com.example.pro_desa.network.response.region_response.DesaResponse;
 import com.example.pro_desa.network.response.region_response.KabupatenResponse;
 import com.example.pro_desa.network.response.region_response.KecamatanResponse;
 import com.example.pro_desa.network.response.region_response.ProvinsiResponse;
-import com.google.gson.annotations.Expose;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -111,10 +112,11 @@ public interface ApiInterface {
     );
 
 //    Get Pengaduan
-    @GET("pengaduan/{appDesaCode}/all")
+    @GET("pengaduan/{appDesaCode}/all/{nik}")
     Call<PengaduanResponse> getPengaduan(@Header("app-token") String app_token,
                                          @Header("prodesa-token") String prodesa_token,
-                                         @Path("appDesaCode") String appdesa_code
+                                         @Path("appDesaCode") String appdesa_code,
+                                         @Path("nik") String nik
     );
 
     //    Get Bantuan
@@ -148,6 +150,40 @@ public interface ApiInterface {
     @GET("get-kelurahan/{kecamatan_id}")
     Call<DesaResponse> getDesa(@Path("kecamatan_id") String kecamatan_id);
 
+    //    getKategoriPengaduan
+    @GET("pengaduan/{appDesaCode}/kategori")
+    Call<KategoriPengaduanResponse> getKategoriPengaduan(
+            @Header("app-token") String app_token,
+            @Header("prodesa-token") String prodesa_token,
+            @Path("appDesaCode") String appDesaCode);
+
+//    Add Pengaduan
+    @Multipart
+    @POST("pengaduan/{appDesaCode}/create")
+    Call<BaseResponse> addPengaduan (
+            @Header("App-Token") String app_token,
+            @Header("ProDesa-Token") String prodesa_token,
+            @Path("appDesaCode") String appDesaCode,
+            @Part("title") RequestBody title,
+            @Part("description") RequestBody description,
+            @Part MultipartBody.Part foto_pendukung,
+            @Part("kategori_pengaduan") RequestBody kategori_pengaduan,
+            @Part("nik") RequestBody nik
+//            @Part("detail_lokasi") RequestBody detail_lokasi
+            );
+
+//    'permohonan-surat/' + dataApp.appDesaCode + '/add-file/' + dataUser.nik;
+    //    Add Letter
+    @Multipart
+    @POST("permohonan-surat/{appDesaCode}/add-file/{nik}")
+    Call<BaseResponse> addLetter (
+            @Header("App-Token") String app_token,
+            @Header("ProDesa-Token") String prodesa_token,
+            @Path("appDesaCode") String appDesaCode,
+            @Path("nik") String nik,
+            @Part("id_syarat_surat") RequestBody id_syarat_surat,
+            @Part("nama") RequestBody nama,
+            @Part MultipartBody.Part file);
 
 //    @GET("api/admin/barang")
 //    Call<ArrayList<Barang>> getBarangList(@Header("Authorization") String token, @Query("type") String type);

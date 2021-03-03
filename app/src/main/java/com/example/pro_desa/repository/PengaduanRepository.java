@@ -33,14 +33,15 @@ public class PengaduanRepository {
         Call<PengaduanResponse> getArtikel = apiInterface.getPengaduan(
                 sharedPrefManager.getSpAppToken(),
                 sharedPrefManager.getSpProdesaToken(),
-                sharedPrefManager.getSpDesaCode()
+                sharedPrefManager.getSpDesaCode(),
+                sharedPrefManager.getSpNik()
         );
         getArtikel.enqueue(new Callback<PengaduanResponse>() {
             @Override
             public void onResponse(Call<PengaduanResponse> call, Response<PengaduanResponse> response) {
                 if (response.code() >= 200 && response.code() < 300) {
                     pengaduanLiveData.postValue(response.body().getPengaduanList().getPengaduans());
-                    Log.d("csdvsv", String.valueOf(response.body().getPengaduanList().getPengaduans() != null));
+                    Log.d("csdvsv", String.valueOf(response.body().getPengaduanList() != null));
                     for (Pengaduan pengaduan: response.body().getPengaduanList().getPengaduans()){
 //                        artikel.getJudul();
                         Log.d("description", pengaduan.getDescription());

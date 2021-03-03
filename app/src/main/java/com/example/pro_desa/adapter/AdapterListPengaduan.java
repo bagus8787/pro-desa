@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import com.example.pro_desa.R;
 import com.example.pro_desa.model.Pengaduan;
 import com.example.pro_desa.ui.user.activity.DetailPengaduanActivity;
 import com.example.pro_desa.utils.SharedPrefManager;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -43,10 +45,10 @@ public class AdapterListPengaduan extends RecyclerView.Adapter<AdapterListPengad
     @Override
     public void onBindViewHolder(@NonNull PengaduanViewHolder holder, int position) {
         holder.setId(pengaduans.get(position).getId());
-        holder.setDescription(pengaduans.get(position).getDescription());
+        holder.setIsi(pengaduans.get(position).getDescription());
         holder.setJudul(pengaduans.get(position).getTitle());
         holder.setTgl_upload(pengaduans.get(position).getCreated_at());
-        
+        holder.setPhoto(pengaduans.get(position).getFoto_pendukung());
         holder.setKategori(pengaduans.get(position).getNama_kategori());
         holder.setDetailLokasi(pengaduans.get(position).getDetail_lokasi());
 
@@ -97,13 +99,17 @@ public class AdapterListPengaduan extends RecyclerView.Adapter<AdapterListPengad
     public class PengaduanViewHolder extends RecyclerView.ViewHolder{
         View mView;
         int id;
-        String judul, isi, tgl_upload, desc, nama_kategori, detail_lokasi;
+        String judul, isi, tgl_upload, desc, nama_kategori, detail_lokasi, url_gambar;
 
-        TextView rvJudul, rvTglUpload;
+        TextView rvJudul, rvTglUpload, rvIsi;
+        ImageView img_art;
 
         public PengaduanViewHolder(View itemView){
             super(itemView);
             mView = itemView;
+
+            int p = getItemCount();
+            Log.d("countttt", String.valueOf(p));
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -112,11 +118,12 @@ public class AdapterListPengaduan extends RecyclerView.Adapter<AdapterListPengad
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             .putExtra("IT_ID", id)
                             .putExtra("IT_JUDUL", judul)
-                            .putExtra("IT_DESC", desc)
+                            .putExtra("IT_DESC", isi)
                             .putExtra("IT_ISI", isi)
                             .putExtra("IT_TGL_UPLOAD", tgl_upload)
                             .putExtra("IT_DETAIL_LOKASI", detail_lokasi)
                             .putExtra("IT_KATEGORI", nama_kategori)
+                            .putExtra("IT_URL_GAMBAR", url_gambar)
                     );
 
                 }
@@ -142,8 +149,28 @@ public class AdapterListPengaduan extends RecyclerView.Adapter<AdapterListPengad
         }
 
         public void setIsi(String isi) {
-            this.isi = String.valueOf(isi);
+            this.isi = isi;
+            rvIsi = mView.findViewById(R.id.text_description_pengajuan);
+            rvIsi.setText(isi);
             Log.d("ISI", String.valueOf(isi));
+        }
+
+        public void setPhoto(String gambar) {
+            this.url_gambar = gambar;
+//            http://222.124.168.221:8500/demo/prodesa/
+            url_gambar = "http://222.124.168.221:8500/demo/prodesa-putat/desa/pengaduan/" + gambar;
+
+            Log.d("url_gambar", url_gambar);
+
+            img_art = mView.findViewById(R.id.img_art);
+
+            img_art.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+            Picasso.with(context)
+                    .load(url_gambar)
+                    .error(R.drawable.bg_null)
+                    .into(img_art);
+
         }
 
         public void setKategori(String nama_kategori) {

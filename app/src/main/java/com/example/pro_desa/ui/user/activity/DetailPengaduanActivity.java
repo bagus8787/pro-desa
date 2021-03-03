@@ -10,13 +10,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pro_desa.R;
+import com.squareup.picasso.Picasso;
 
 import org.apache.commons.lang3.StringUtils;
 
 public class DetailPengaduanActivity extends AppCompatActivity {
 
     int IT_ID;
-    String IT_JUDUL, IT_ISI, IT_TGL_UPLOAD, IT_DETAIL_LOKASI, IT_DESC, IT_KATEGORI;
+    String IT_JUDUL, IT_ISI, IT_TGL_UPLOAD, IT_DETAIL_LOKASI, IT_DESC, IT_KATEGORI, IT_URL_GAMBAR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class DetailPengaduanActivity extends AppCompatActivity {
         IT_DESC = getIntent().getStringExtra("IT_DESC");
         IT_DETAIL_LOKASI = getIntent().getStringExtra("IT_DETAIL_LOKASI");
         IT_KATEGORI = getIntent().getStringExtra("IT_KATEGORI");
+        IT_URL_GAMBAR = getIntent().getStringExtra("IT_URL_GAMBAR");
 
         TextView judul      = findViewById(R.id.txt_title_pe);
         TextView tgl_upload = findViewById(R.id.txt_tgl_upload);
@@ -37,6 +39,8 @@ public class DetailPengaduanActivity extends AppCompatActivity {
         TextView kategori   = findViewById(R.id.txt_kat_pe);
         TextView detail_lokasi  =   findViewById(R.id.txt_detail_lokasi);
         ImageView img_btn_back  = findViewById(R.id.img_btn_back);
+        ImageView img_detail_art = findViewById(R.id.img_detail_art);
+
         img_btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +60,10 @@ public class DetailPengaduanActivity extends AppCompatActivity {
             detail_lokasi.setText("Detail lokasi belum ada");
         }
 
+        Picasso.with(getApplicationContext())
+                .load(IT_URL_GAMBAR)
+                .error(R.drawable.bg_null)
+                .into(img_detail_art);
 
         Log.d("pengCCDSCDSCSDad", IT_JUDUL);
     }
