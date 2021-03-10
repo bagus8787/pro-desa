@@ -1,10 +1,10 @@
 package com.example.pro_desa.model;
 
-import com.example.pro_desa.network.response.PermohonanSuratResponse;
+import com.example.pro_desa.network.response.ListPermohonanSuratResponse;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PermohonanSuratList extends PermohonanSuratResponse {
+public class ListPermohonanSuratList extends ListPermohonanSuratResponse {
     @Expose
     @SerializedName("id") int id;
     @Expose

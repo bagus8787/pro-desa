@@ -17,28 +17,28 @@ import android.widget.LinearLayout;
 import android.widget.SearchView;
 
 import com.example.pro_desa.R;
-import com.example.pro_desa.adapter.AdapterListPermohonanSurat;
-import com.example.pro_desa.model.PermohonanSuratList;
+import com.example.pro_desa.adapter.AdapterKategoriPermohonanSurat;
+import com.example.pro_desa.model.ListPermohonanSuratList;
 import com.example.pro_desa.network.ApiInterface;
-import com.example.pro_desa.repository.PermohonanSuratRepository;
+import com.example.pro_desa.repository.PermohonanSuratKategoriRepository;
 import com.example.pro_desa.ui.user.HomeUserActivity;
 import com.example.pro_desa.utils.SharedPrefManager;
-import com.example.pro_desa.viewmodels.PermohonanSuratViewModel;
+import com.example.pro_desa.viewmodels.PermohonanSuratKategoriViewModel;
 
 import java.util.ArrayList;
 
 import static com.example.pro_desa.Myapp.getContext;
 
 public class PermohonanSuratActivity extends AppCompatActivity {
-    private AdapterListPermohonanSurat adapterListPermohonanSurat;
+    private AdapterKategoriPermohonanSurat adapterKategoriPermohonanSurat;
     public SharedPrefManager sharedPrefManager;
     public ApiInterface apiInterface;
     Context context;
 
-    ArrayList<PermohonanSuratList> permohonanSuratLists;
+    ArrayList<ListPermohonanSuratList> permohonanSuratLists;
 
-    PermohonanSuratViewModel permohonanSuratViewModel;
-    PermohonanSuratRepository permohonanSuratRepository;
+    PermohonanSuratKategoriViewModel permohonanSuratKategoriViewModel;
+    PermohonanSuratKategoriRepository permohonanSuratKategoriRepository;
 
     LinearLayout linearLayout;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -51,11 +51,11 @@ public class PermohonanSuratActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permohonan_surat);
 
-        adapterListPermohonanSurat = new AdapterListPermohonanSurat(getContext());
+        adapterKategoriPermohonanSurat = new AdapterKategoriPermohonanSurat(getContext());
 
         sharedPrefManager = new SharedPrefManager(getContext());
 
-        permohonanSuratRepository = new PermohonanSuratRepository();
+        permohonanSuratKategoriRepository = new PermohonanSuratKategoriRepository();
 
         swipeRefreshLayout = findViewById(R.id.refresh_ly);
         linearLayout = findViewById(R.id.ln_kosong_art);
@@ -85,13 +85,13 @@ public class PermohonanSuratActivity extends AppCompatActivity {
             }
             @Override
             public boolean onQueryTextChange(String newText) {
-                adapterListPermohonanSurat.getFilter().filter(newText);
+                adapterKategoriPermohonanSurat.getFilter().filter(newText);
                 return false;
             }
         });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapterListPermohonanSurat);
+        recyclerView.setAdapter(adapterKategoriPermohonanSurat);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -101,15 +101,15 @@ public class PermohonanSuratActivity extends AppCompatActivity {
             }
         });
 
-        permohonanSuratViewModel = ViewModelProviders.of(this).get(PermohonanSuratViewModel.class);
-        permohonanSuratViewModel.init();
-        permohonanSuratViewModel.getPermohonanSuratLiveData().observe(this, new Observer<ArrayList<PermohonanSuratList>>() {
+        permohonanSuratKategoriViewModel = ViewModelProviders.of(this).get(PermohonanSuratKategoriViewModel.class);
+        permohonanSuratKategoriViewModel.init();
+        permohonanSuratKategoriViewModel.getPermohonanSuratLiveData().observe(this, new Observer<ArrayList<ListPermohonanSuratList>>() {
             @Override
-            public void onChanged(ArrayList<PermohonanSuratList> permohonanSuratLists) {
-                adapterListPermohonanSurat.setPermohonanSuratLists(permohonanSuratLists);
+            public void onChanged(ArrayList<ListPermohonanSuratList> permohonanSuratLists) {
+                adapterKategoriPermohonanSurat.setPermohonanSuratLists(permohonanSuratLists);
 
-                Log.d("asdcadscd", String.valueOf(adapterListPermohonanSurat.getItemCount()));
-                if (adapterListPermohonanSurat.getItemCount() != 0){
+                Log.d("asdcadscd", String.valueOf(adapterKategoriPermohonanSurat.getItemCount()));
+                if (adapterKategoriPermohonanSurat.getItemCount() != 0){
                     linearLayout.setVisibility(View.INVISIBLE);
                     searchView.setVisibility(View.VISIBLE);
                 } else {
@@ -127,11 +127,11 @@ public class PermohonanSuratActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        permohonanSuratViewModel.getPermohonanSurat();
+        permohonanSuratKategoriViewModel.getPermohonanSurat();
     }
 
     public void reloadPermohonanSuratList() {
-        permohonanSuratViewModel.getPermohonanSurat();
-        permohonanSuratRepository.getPermohonanSurat();
+        permohonanSuratKategoriViewModel.getPermohonanSurat();
+        permohonanSuratKategoriRepository.getPermohonanSurat();
     }
 }

@@ -45,4 +45,15 @@ public class SyaratPermohonanSuratList extends SyaratPermohonanSuratResponse {
     public void setRef_syarat_nama(String ref_syarat_nama) {
         this.ref_syarat_nama = ref_syarat_nama;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof SyaratPermohonanSuratList){
+            SyaratPermohonanSuratList c = (SyaratPermohonanSuratList ) obj;
+            if(c.getId()==id )
+                return true;
+        }
+
+        return false;
+    }
 }

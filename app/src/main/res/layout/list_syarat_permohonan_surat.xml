@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -12,13 +13,14 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
+        android:visibility="invisible"
         android:textStyle="bold"
         android:textSize="12sp"
         android:text="1." />
 
     <TextView
         android:id="@+id/txt_nama_syarat"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="10dp"
@@ -28,6 +30,30 @@
         android:text="Surat Pengantar RW"
         android:textSize="12sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ref_syarat_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nama_syarat"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="7dp"
+        android:layout_toEndOf="@+id/btn_upload_syarat"
+        android:text="ref_syarat_id"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/id_syarat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ref_syarat_id"
+        android:layout_alignBottom="@+id/ref_syarat_id"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_toEndOf="@+id/ref_syarat_id"
+        android:visibility="invisible"
+        android:text="id_syarat" />
 
     <Button
         android:id="@+id/btn_upload_syarat"
@@ -39,5 +65,18 @@
         android:layout_alignStart="@+id/txt_nama_syarat"
         android:layout_marginStart="0dp"
         android:layout_marginTop="1dp"/>
+
+    <ImageView
+        android:id="@+id/img_check"
+        android:layout_width="36dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/btn_upload_syarat"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="7dp"
+        android:layout_toEndOf="@+id/btn_upload_syarat"
+        android:visibility="invisible"
+        android:src="@drawable/ic_baseline_check"
+        app:tint="@android:color/holo_green_light" />
+
 
 </RelativeLayout>

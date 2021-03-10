@@ -1,6 +1,5 @@
 package com.example.pro_desa.network.response;
 
-import com.example.pro_desa.model.PermohonanSuratList;
 import com.example.pro_desa.model.SyaratPermohonanSuratList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

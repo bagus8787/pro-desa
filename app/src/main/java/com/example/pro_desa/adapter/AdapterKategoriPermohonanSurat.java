@@ -14,30 +14,33 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pro_desa.Myapp;
 import com.example.pro_desa.R;
-import com.example.pro_desa.model.PermohonanSuratList;
+import com.example.pro_desa.model.ListPermohonanSuratList;
+import com.example.pro_desa.network.ApiClient;
+import com.example.pro_desa.network.ApiInterface;
 import com.example.pro_desa.ui.user.activity.SyaratPermohonanSuratActivity;
 import com.example.pro_desa.utils.SharedPrefManager;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.ArrayList;
 
-public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterListPermohonanSurat.PermohonanSuratViewHolder>{
-    private ArrayList<PermohonanSuratList> permohonanSuratLists;
-    private ArrayList<PermohonanSuratList> permohonanSuratsArrayartikelLists;
+public class AdapterKategoriPermohonanSurat extends RecyclerView.Adapter<AdapterKategoriPermohonanSurat.PermohonanSuratViewHolder>{
+    private ArrayList<ListPermohonanSuratList> permohonanSuratLists;
+    private ArrayList<ListPermohonanSuratList> permohonanSuratsArrayartikelLists;
     private Context context;
     private SharedPrefManager sharedPrefManager;
+    private ApiInterface apiInterface;
 
-    public AdapterListPermohonanSurat(Context context){
+    public AdapterKategoriPermohonanSurat(Context context){
         this.context = context;
         sharedPrefManager = new SharedPrefManager(Myapp.getContext());
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
+
     }
 
     @NonNull
     @Override
     public PermohonanSuratViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.list_item_permohonan_surat, parent, false);
+        View view = layoutInflater.inflate(R.layout.list_item_kategori_permohonan_surat, parent, false);
         return new PermohonanSuratViewHolder(view);
     }
 
@@ -53,7 +56,7 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
         return (permohonanSuratLists != null) ? permohonanSuratLists.size() : 0;
     }
 
-    public void setPermohonanSuratLists(ArrayList<PermohonanSuratList> permohonanSuratLists){
+    public void setPermohonanSuratLists(ArrayList<ListPermohonanSuratList> permohonanSuratLists){
         this.permohonanSuratLists = permohonanSuratLists;
         permohonanSuratsArrayartikelLists = new ArrayList<>(permohonanSuratLists);
         notifyDataSetChanged();
@@ -66,12 +69,12 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
     private Filter exampleFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<PermohonanSuratList> filteredList = new ArrayList<>();
+            ArrayList<ListPermohonanSuratList> filteredList = new ArrayList<>();
             if (constraint == null || constraint.length() == 0) {
                 filteredList.addAll(permohonanSuratLists);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
-                for (PermohonanSuratList arrayList : permohonanSuratsArrayartikelLists) {
+                for (ListPermohonanSuratList arrayList : permohonanSuratsArrayartikelLists) {
                     if (arrayList.getNama().toLowerCase().contains(filterPattern)) {
                         filteredList.add(arrayList);
                     }
@@ -84,7 +87,7 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             permohonanSuratLists.clear();
-            permohonanSuratLists.addAll((ArrayList<PermohonanSuratList>) results.values);
+            permohonanSuratLists.addAll((ArrayList<ListPermohonanSuratList>) results.values);
 //            artikels = (ArrayList<Artikel>) results.values;
             notifyDataSetChanged();
         }
@@ -93,7 +96,7 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
     public class PermohonanSuratViewHolder extends RecyclerView.ViewHolder {
         View mView;
         int id;
-        String nama;
+        String nama, url_gambar,id_syarat;
 
         TextView rvJudul, rvTglUpload, rvIsi;
 
@@ -106,8 +109,10 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
                 public void onClick(View view) {
                     context.startActivity(new Intent(context, SyaratPermohonanSuratActivity.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            .putExtra("IT_ID", id)
+                            .putExtra("IT_ID", String.valueOf(id))
                             .putExtra("IT_NAMA", nama)
+                            .putExtra("IT_ID_SYARAT", id_syarat)
+                            .putExtra("IT_URL_GAMBAR_FILE", url_gambar)
                     );
 
 //                    Log.d("id_leter", String.valueOf(id));
@@ -131,5 +136,8 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
             Log.d("setJudul", String.valueOf(rvJudul));
         }
 
+
     }
+
+
 }

@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Filter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,9 +26,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pro_desa.Myapp;
 import com.example.pro_desa.R;
+import com.example.pro_desa.model.ListFile;
 import com.example.pro_desa.model.SyaratPermohonanSuratList;
+import com.example.pro_desa.network.ApiClient;
+import com.example.pro_desa.network.ApiInterface;
+import com.example.pro_desa.network.response.SyaratPermohonanSuratResponse;
+import com.example.pro_desa.network.response.file_response.PermohonanFileResponse;
 import com.example.pro_desa.ui.user.activity.PilihFileActivity;
 import com.example.pro_desa.utils.SharedPrefManager;
+import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.io.File;
@@ -35,12 +42,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 import static android.app.Activity.RESULT_OK;
 
 public class AdapterSyaratPermohonanSurat extends RecyclerView.Adapter<AdapterSyaratPermohonanSurat.SyaratPermohonanSuratViewHolder>{
     private ArrayList<SyaratPermohonanSuratList> syaratPermohonanSuratLists;
     private ArrayList<SyaratPermohonanSuratList> syaratPermohonanSuratListArrayList;
     private Context context;
+
+    private ArrayList<ListFile> listFile = new ArrayList<ListFile>();
+
+    private ApiInterface apiInterface;
     private SharedPrefManager sharedPrefManager;
 
     public static final int PICK_IMAGE = 1;
@@ -49,11 +64,20 @@ public class AdapterSyaratPermohonanSurat extends RecyclerView.Adapter<AdapterSy
     File file;
     Uri uri;
 
+
     int no = 0;
+
+    ImageView img_check;
 
     public AdapterSyaratPermohonanSurat(Context context){
         this.context = context;
+//        this.listFile.add(new ListFile());
         sharedPrefManager = new SharedPrefManager(Myapp.getContext());
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
+    }
+
+    public void SetFiles(ArrayList<ListFile> listFiles){
+        this.listFile = listFiles;
     }
 
     @NonNull
@@ -68,6 +92,7 @@ public class AdapterSyaratPermohonanSurat extends RecyclerView.Adapter<AdapterSy
     public void onBindViewHolder(@NonNull SyaratPermohonanSuratViewHolder holder, int position) {
         holder.setId(syaratPermohonanSuratLists.get(position).getRef_syarat_id());
         holder.setJudul(syaratPermohonanSuratLists.get(position).getRef_syarat_nama());
+        holder.surat_format_id(syaratPermohonanSuratLists.get(position).getSurat_format_id());
         holder.setNo(no);
 
     }
@@ -116,12 +141,15 @@ public class AdapterSyaratPermohonanSurat extends RecyclerView.Adapter<AdapterSy
 
     public class SyaratPermohonanSuratViewHolder extends RecyclerView.ViewHolder {
         View mView;
-        int id;
-        String nama;
-//        int no = 0;
+        int id, surat_format_id;
+        String nama, id_syarat;
+        ImageView img_check;
+        ListFile listfile;
+        String url_gambar, url_gambar_nama;
+        //        int no = 0;
         int total = 0;
 
-        TextView rvJudul, rvTglUpload, rvNo;
+        TextView rvJudul, rvTglUpload, rvNo, rvId, id_syaratv;
         Button btn_upload_syarat;
 
         public SyaratPermohonanSuratViewHolder(View itemView) {
@@ -133,42 +161,65 @@ public class AdapterSyaratPermohonanSurat extends RecyclerView.Adapter<AdapterSy
                 @Override
                 public void onClick(View v) {
                     Log.d("nama_file", nama);
-                    Log.d("id_file", String.valueOf(id));
-
                     context.startActivity(new Intent(context, PilihFileActivity.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             .putExtra("IT_REF_SYARAT_ID", String.valueOf(id))
                             .putExtra("IT_NAMA", nama)
+                            .putExtra("IT_URL_GAMBAR", url_gambar)
+                            .putExtra("IT_URL_GAMBAR_NAMA", url_gambar_nama)
                     );
 
                 }
             });
 
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-////                    context.startActivity(new Intent(context, SyaratPermohonanSuratActivity.class)
-////                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-////                            .putExtra("IT_ID", id)
-////                            .putExtra("IT_NAMA", nama)
-////                    );
-//
-//                    Log.d("nama_file", nama);
-//                    Log.d("id_file", String.valueOf(id));
-//
-//                }
-//            });
-
-//            total = getItemCount();
-//
-//            for(int no = 0; no < total; ++no){
-//                rvNo = mView.findViewById(R.id.txt_no);
-//                rvNo.setText(String.valueOf(no));
-//            }
         }
 
         public void setId(int id) {
             this.id = id;
+
+            rvId = mView.findViewById(R.id.ref_syarat_id);
+            rvId.setText(String.valueOf(id));
+            Log.d("id_file", String.valueOf(id));
+
+            id_syaratv = mView.findViewById(R.id.id_syarat);
+            Log.d("id_syaratv", String.valueOf(id_syarat));
+
+//            if (listFile.contains(new ListFile(id))){
+//                Log.d("kala", String.valueOf(listFile.contains(new ListFile(id))));
+//                Log.d("kala", String.valueOf(id));
+//
+////                mView.findViewById(R.id.img_check).setVisibility(View.VISIBLE);
+//
+//
+//            }
+
+                for (ListFile file: listFile){
+
+                    if (String.valueOf(id).equals(String.valueOf(file.getId_syarat()))){
+//                        mView.findViewById(R.id.img_check).setVisibility(View.VISIBLE);
+                        id_syaratv.setText(String.valueOf(file.getId_syarat()));
+
+                        Log.d("akla", String.valueOf(id) + "=" + String.valueOf(file.getId_syarat()));
+
+                        url_gambar = "http://222.124.168.221:8500/demo/prodesa-putat/desa/upload/dokumen/" + file.getSatuan();
+                        url_gambar_nama = file.getNama();
+
+                        Log.d("urlgambar", url_gambar);
+
+//                        return;
+                        break;
+                    }
+//
+                }
+
+
+
+        }
+
+        public void surat_format_id(int surat_format_id) {
+            this.surat_format_id = surat_format_id;
+
+            Log.d("surat_format_id", String.valueOf(surat_format_id));
         }
 
         public void setJudul(String judul) {
@@ -179,21 +230,14 @@ public class AdapterSyaratPermohonanSurat extends RecyclerView.Adapter<AdapterSy
         }
 
         public void setNo(int nou) {
-            int total = getItemCount();
-            no = nou;
-
-            if (nou < total){
-              ++no;
-            } else {
-//                no = 0;
-            }
-
-            rvNo = mView.findViewById(R.id.txt_no);
-            rvNo.setText(String.valueOf(nou + "."));
-            Log.d("nour", String.valueOf(nou));
 
         }
 
+
+//        public void setListFile(ListFile listfile) {
+//            this.listfile = listfile;
+//
+//        }
     }
 
 //

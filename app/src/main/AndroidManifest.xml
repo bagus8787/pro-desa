@@ -27,7 +27,8 @@
         android:roundIcon="@mipmap/ic_pd2_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.user.activity.PilihFileActivity"></activity>
+        <activity android:name=".ui.user.activity.DetailPermohonanSuratActivity"></activity>
+        <activity android:name=".ui.user.activity.PilihFileActivity" />
         <activity android:name=".ui.user.activity.SyaratPermohonanSuratActivity" />
         <activity android:name=".ui.user.activity.PermohonanSuratActivity" />
         <activity android:name=".ui.user.activity.ResetPasswordActivity" />

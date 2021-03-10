@@ -108,8 +108,8 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
 
         Picasso.with(getContext())
                 .load(sharedPrefManager.getSpAvatar())
-                .fit().centerCrop()
                 .error(R.drawable.user_no)
+                .fit().centerCrop()
                 .into(img_profil);
 
         tv_name.setText(StringUtils.capitalize(sharedPrefManager.getSpNama().toLowerCase().trim()));
@@ -233,11 +233,13 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
 
             case R.id.ln_pd:
                 Intent pd   = new Intent(getActivity(), PengaduanActivity.class);
+                pd.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(pd);
                 break;
 
             case R.id.ln_pb:
                 Intent pb   = new Intent(getActivity(), BantuanActivity.class);
+                pb.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(pb);
                 break;
 
@@ -249,16 +251,19 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
 //                ft.replace(R.id.layout_container, llf);
 //                ft.commit();
                 Intent ps  = new Intent(getActivity(), PermohonanSuratActivity.class);
+                ps.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(ps);
                 break;
 
             case R.id.icon_profil:
                 Intent icon_profil  = new Intent(getActivity(), ProfilActivity.class);
+                icon_profil.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(icon_profil);
                 break;
 
             case R.id.btn_detail_pe:
                 Intent b  = new Intent(getActivity(), DetailPengumumanActivity.class);
+                b.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(b);
                 break;
         }

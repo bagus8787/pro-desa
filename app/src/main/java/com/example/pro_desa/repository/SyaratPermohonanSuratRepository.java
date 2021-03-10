@@ -9,7 +9,6 @@ import com.example.pro_desa.Myapp;
 import com.example.pro_desa.model.SyaratPermohonanSuratList;
 import com.example.pro_desa.network.ApiClient;
 import com.example.pro_desa.network.ApiInterface;
-import com.example.pro_desa.network.response.PermohonanSuratResponse;
 import com.example.pro_desa.network.response.SyaratPermohonanSuratResponse;
 import com.example.pro_desa.utils.SharedPrefManager;
 

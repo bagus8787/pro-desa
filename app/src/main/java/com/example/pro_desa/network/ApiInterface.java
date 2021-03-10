@@ -1,17 +1,21 @@
 package com.example.pro_desa.network;
 
+import com.example.pro_desa.model.ListFile;
+import com.example.pro_desa.model.PermohonanSurat;
 import com.example.pro_desa.network.response.ArtikelResponse;
 import com.example.pro_desa.network.response.BantuanResponse;
 import com.example.pro_desa.network.response.BaseResponse;
 import com.example.pro_desa.network.response.LogOutResponse;
 import com.example.pro_desa.network.response.PengaduanResponse;
 import com.example.pro_desa.network.response.PengumumanResponse;
+import com.example.pro_desa.network.response.ListPermohonanSuratResponse;
 import com.example.pro_desa.network.response.PermohonanSuratResponse;
 import com.example.pro_desa.network.response.RegisterResponse;
 import com.example.pro_desa.network.response.ResponseDataAwal;
 import com.example.pro_desa.network.response.SyaratPermohonanSuratResponse;
 import com.example.pro_desa.network.response.UserResponse;
-import com.example.pro_desa.model.ListKategoriPengaduan;
+import com.example.pro_desa.network.response.file_response.FileResponse;
+import com.example.pro_desa.network.response.file_response.PermohonanFileResponse;
 import com.example.pro_desa.network.response.kategori_response.KategoriPengaduanResponse;
 import com.example.pro_desa.network.response.region_response.DesaResponse;
 import com.example.pro_desa.network.response.region_response.KabupatenResponse;
@@ -80,7 +84,7 @@ public interface ApiInterface {
 
 //    ListPermohonanSurat
     @GET("list-surat/{appDesaCode}/all")
-    Call<PermohonanSuratResponse> getPermohonanSurat(
+    Call<ListPermohonanSuratResponse> getPermohonanSuratKategori(
             @Header("App-Token") String app_token,
             @Header("ProDesa-Token") String prodesa_token,
             @Path("appDesaCode") String appdesa_code
@@ -134,6 +138,14 @@ public interface ApiInterface {
                                            @Path("nik") String nik
     );
 
+    //    Get Permohonan Surat
+    @GET("permohonan-surat/{appDesaCode}/all/{nik}")
+    Call<PermohonanSurat> getPermohonanSurat(@Header("app-token") String app_token,
+                                             @Header("prodesa-token") String prodesa_token,
+                                             @Path("appDesaCode") String appdesa_code,
+                                             @Path("nik") String nik
+    );
+
     //    getProv
     @GET("get-provinsi")
     Call<ProvinsiResponse> getProv();
@@ -152,10 +164,24 @@ public interface ApiInterface {
 
     //    getKategoriPengaduan
     @GET("pengaduan/{appDesaCode}/kategori")
-    Call<KategoriPengaduanResponse> getKategoriPengaduan(
-            @Header("app-token") String app_token,
-            @Header("prodesa-token") String prodesa_token,
-            @Path("appDesaCode") String appDesaCode);
+    Call<KategoriPengaduanResponse> getKategoriPengaduan(@Header("app-token") String app_token,
+                                                         @Header("prodesa-token") String prodesa_token,
+                                                         @Path("appDesaCode") String appDesaCode);
+
+    //    Get File
+    @GET("permohonan-surat/{appDesaCode}/get-file/{nik}")
+    Call<PermohonanFileResponse> getFile(@Header("app-token") String app_token,
+                                         @Header("prodesa-token") String prodesa_token,
+                                         @Path("appDesaCode") String appdesa_code,
+                                         @Path("nik") String nik
+    );
+
+    @GET("permohonan-surat/{appDesaCode}/get-file/{nik}")
+    Call<PermohonanFileResponse> getFile2(@Header("app-token") String app_token,
+                            @Header("prodesa-token") String prodesa_token,
+                            @Path("appDesaCode") String appdesa_code,
+                            @Path("nik") String nik
+    );
 
 //    Add Pengaduan
     @Multipart
@@ -172,7 +198,21 @@ public interface ApiInterface {
 //            @Part("detail_lokasi") RequestBody detail_lokasi
             );
 
-//    'permohonan-surat/' + dataApp.appDesaCode + '/add-file/' + dataUser.nik;
+//    Add Permohonan Surat
+    @FormUrlEncoded
+    @POST("permohonan-surat/{appDesaCode}/create/{nik}")
+    Call<BaseResponse> addPermohonanSurat(
+            @Header("App-Token") String app_token,
+            @Header("ProDesa-Token") String prodesa_token,
+            @Path("appDesaCode") String appDesaCode,
+            @Path("nik") String nik,
+            @Field("id_surat") String id_surat,
+            @Field("keterangan") String keterangan,
+            @Field("no_hp_aktif") String no_hp_aktif,
+            @Field("syarat") String syarat,
+            @Field("keterangan_tambahan") String keterangan_tambahan
+    );
+
     //    Add Letter
     @Multipart
     @POST("permohonan-surat/{appDesaCode}/add-file/{nik}")
