@@ -74,7 +74,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="7dp"
         android:layout_toEndOf="@+id/btn_upload_syarat"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:src="@drawable/ic_baseline_check"
         app:tint="@android:color/holo_green_light" />
 

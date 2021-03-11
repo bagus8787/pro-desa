@@ -142,6 +142,7 @@ public class SyaratPermohonanSuratActivity extends AppCompatActivity implements 
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
+                reloadPermohonanSuratList();
 
             }
         });
@@ -201,28 +202,10 @@ public class SyaratPermohonanSuratActivity extends AppCompatActivity implements 
                                 // hapus dataSyaratJson
                                 // hapus dataSyarat
 
-                                Toast.makeText(SyaratPermohonanSuratActivity.this, "Ada file persyaratan yang belum legkap, silahkan lengkapi terlebih dahulu" ,Toast.LENGTH_LONG).show();
+//                                Toast.makeText(SyaratPermohonanSuratActivity.this, "Ada file persyaratan yang belum legkap, silahkan lengkapi terlebih dahulu" ,Toast.LENGTH_LONG).show();
 
 //                                return;
                             }
-
-//                            for (ListFile file : response.body().getFileResponse().getListFiles()){
-//                                file.getId_syarat();
-//
-//
-////                                Log.d("fileeee", String.valueOf(file.getId_syarat()));
-////
-////                                Log.d("logegege", String.valueOf(syaratPermohonanSuratList.getRef_syarat_id()) + "=" + file.getId_syarat());
-//
-//
-////                                if (String.valueOf(syaratPermohonanSuratList.getRef_syarat_id()).equals(String.valueOf(file.getId_syarat()))){
-////                                    Log.d("perbadnigna",String.valueOf(syaratPermohonanSuratList.getRef_syarat_id()) + "=" + file.getId_syarat());
-////
-////                                    dataSyarat.put(String.valueOf(file.getId_syarat()) , String.valueOf(file.getId()));
-////
-////                                }
-//
-//                            }
 
                         }
 
@@ -303,13 +286,22 @@ public class SyaratPermohonanSuratActivity extends AppCompatActivity implements 
                     @Override
                     public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
                         progressDialog.dismiss();
-                        Log.d("log_Add", response.body().getMessage());
+
+                        if (response.body().getCode() >= 200 && response.body().getCode() < 300){
+                            Log.d("log_Add", response.body().getMessage());
+                            Toast.makeText(SyaratPermohonanSuratActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+
+                        } else {
+                            Log.d("log_Add", response.body().getMessage());
+                            Toast.makeText(SyaratPermohonanSuratActivity.this,"Ada dokumen yang belum lengkap, Silahkan lengkapi terlebih dahulu", Toast.LENGTH_LONG).show();
+                        }
+
                     }
 
                     @Override
                     public void onFailure(Call<BaseResponse> call, Throwable t) {
                         progressDialog.dismiss();
-
+                        Toast.makeText(SyaratPermohonanSuratActivity.this,"Ada dokumen yang belum lengkap, Silahkan lengkapi terlebih dahulu", Toast.LENGTH_LONG).show();
                     }
                 });
 

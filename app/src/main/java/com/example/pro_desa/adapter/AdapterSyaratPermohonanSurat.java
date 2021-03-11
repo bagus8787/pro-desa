@@ -149,7 +149,7 @@ public class AdapterSyaratPermohonanSurat extends RecyclerView.Adapter<AdapterSy
         //        int no = 0;
         int total = 0;
 
-        TextView rvJudul, rvTglUpload, rvNo, rvId, id_syaratv;
+        TextView rvJudul, rvTglUpload, rvNo, rvId, id_file;
         Button btn_upload_syarat;
 
         public SyaratPermohonanSuratViewHolder(View itemView) {
@@ -179,41 +179,33 @@ public class AdapterSyaratPermohonanSurat extends RecyclerView.Adapter<AdapterSy
 
             rvId = mView.findViewById(R.id.ref_syarat_id);
             rvId.setText(String.valueOf(id));
-            Log.d("id_file", String.valueOf(id));
+            Log.d("id_syaratv", String.valueOf(id));
 
-            id_syaratv = mView.findViewById(R.id.id_syarat);
-            Log.d("id_syaratv", String.valueOf(id_syarat));
+            for (ListFile file: listFile){
 
-//            if (listFile.contains(new ListFile(id))){
-//                Log.d("kala", String.valueOf(listFile.contains(new ListFile(id))));
-//                Log.d("kala", String.valueOf(id));
-//
-////                mView.findViewById(R.id.img_check).setVisibility(View.VISIBLE);
-//
-//
-//            }
+                if (String.valueOf(id).equals(String.valueOf(file.getId_syarat()))){
+                    mView.findViewById(R.id.img_check).setVisibility(View.VISIBLE);
+                    id_file = mView.findViewById(R.id.id_syarat);
 
-                for (ListFile file: listFile){
+                    id_file.setText(String.valueOf(file.getId()));
 
-                    if (String.valueOf(id).equals(String.valueOf(file.getId_syarat()))){
-//                        mView.findViewById(R.id.img_check).setVisibility(View.VISIBLE);
-                        id_syaratv.setText(String.valueOf(file.getId_syarat()));
+                    Log.d("akla", String.valueOf(id) + "=" + String.valueOf(file.getId_syarat()));
 
-                        Log.d("akla", String.valueOf(id) + "=" + String.valueOf(file.getId_syarat()));
+                    url_gambar = "http://222.124.168.221:8500/demo/prodesa-putat/desa/upload/dokumen/" + file.getSatuan();
+                    url_gambar_nama = file.getNama();
 
-                        url_gambar = "http://222.124.168.221:8500/demo/prodesa-putat/desa/upload/dokumen/" + file.getSatuan();
-                        url_gambar_nama = file.getNama();
-
-                        Log.d("urlgambar", url_gambar);
+                    Log.d("urlgambar", url_gambar);
 
 //                        return;
-                        break;
-                    }
-//
+                    break;
+                } else {
+                    mView.findViewById(R.id.img_check).setVisibility(View.INVISIBLE);
+                    url_gambar = "null";
+                    url_gambar_nama = "Nama File";
+//                    break;
                 }
-
-
-
+//
+            }
         }
 
         public void surat_format_id(int surat_format_id) {

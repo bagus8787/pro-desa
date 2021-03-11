@@ -213,6 +213,18 @@ public interface ApiInterface {
             @Field("keterangan_tambahan") String keterangan_tambahan
     );
 
+//    Cancel Permohonan
+    @FormUrlEncoded
+    @POST("permohonan-surat/{appDesaCode}/all/{nik}/{id}/rejected")
+    Call<BaseResponse> cancelPermohonanSurat(
+            @Header("App-Token") String app_token,
+            @Header("ProDesa-Token") String prodesa_token,
+            @Path("appDesaCode") String appDesaCode,
+            @Path("nik") String nik,
+            @Path("id") String id,
+            @Field("alasan_pembatalan") String alasan_pembatalan
+    );
+
     //    Add Letter
     @Multipart
     @POST("permohonan-surat/{appDesaCode}/add-file/{nik}")

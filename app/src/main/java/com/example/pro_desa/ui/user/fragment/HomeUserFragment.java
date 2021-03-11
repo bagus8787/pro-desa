@@ -54,6 +54,7 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
     ArtikelViewModel artikelViewModel;
     ArtikelRepository artikelRepository;
 
+    ShimmerFrameLayout shimmerFrameLayout;
     RecyclerView recyclerView;
 
     public HomeUserFragment() {
@@ -89,7 +90,7 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
         View rootView = inflater.inflate(R.layout.fragment_home_user,
                 container, false);
 
-        ShimmerFrameLayout shimmerFrameLayout = rootView.findViewById(R.id.shimmer_view_container);
+        shimmerFrameLayout = rootView.findViewById(R.id.shimmer_view_container);
         shimmerFrameLayout.startShimmer();
 
         artikelRepository = new ArtikelRepository();
@@ -126,15 +127,15 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(adapterListArtikel);
 
-//        shimmerFrameLayout.stopShimmer();
 //        shimmerFrameLayout.setVisibility(View.GONE);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
-
                 shimmerFrameLayout.startShimmer();
+
+                reloadArtikelList();
 //                shimmerFrameLayout.setVisibility(View.GONE);
             }
         });
@@ -146,6 +147,7 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         reloadArtikelList();
+
 //        autoScroll();
 //        new Handler().postDelayed(new Runnable() {
 //            @Override
@@ -168,6 +170,7 @@ public class HomeUserFragment extends Fragment implements View.OnClickListener {
     public void reloadArtikelList() {
         artikelViewModel.getArtikel();
         artikelRepository.getArtikel();
+        shimmerFrameLayout.stopShimmer();
     }
 
     public void autoScroll(){

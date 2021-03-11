@@ -99,6 +99,7 @@ public class ArtikelActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
+                reloadArtikelList();
 
             }
         });

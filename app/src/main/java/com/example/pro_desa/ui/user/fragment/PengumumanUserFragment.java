@@ -89,6 +89,7 @@ public class PengumumanUserFragment extends Fragment {
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
+                reloadPengumumanList();
             }
         });
 

@@ -85,6 +85,7 @@ public class HistorySuratUserFragment extends Fragment {
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
+                reloadPengumumanList();
             }
         });
 

@@ -97,7 +97,7 @@ public class PermohonanSuratActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
-
+                reloadPermohonanSuratList();
             }
         });
 

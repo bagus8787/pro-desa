@@ -91,7 +91,7 @@ public class PengaduanActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
-
+                reloadPengaduanList();
             }
         });
 

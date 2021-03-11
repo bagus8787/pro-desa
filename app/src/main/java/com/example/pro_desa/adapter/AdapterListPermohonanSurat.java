@@ -51,6 +51,7 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
         holder.setJudul(permohonanSuratLists.get(position).getNama_kategori_surat());
         holder.setStatus(permohonanSuratLists.get(position).getStatus());
         holder.setTgl(permohonanSuratLists.get(position).getCreated_at());
+        holder.setNo(permohonanSuratLists.get(position).getNo_hp_aktif());
 
     }
 
@@ -99,9 +100,9 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
     public class PermohonanSuratViewHolder extends RecyclerView.ViewHolder {
         View mView;
         int id, status;
-        String nama, url_gambar,id_syarat, created;
+        String nama, url_gambar,id_syarat, created, no;
 
-        TextView rvJudul, rvTglUpload, rvIsi;
+        TextView rvJudul, rvTglUpload, rvIsi, rvNo, rvTgl_dibuat, rvStatus;
 
         public PermohonanSuratViewHolder(View itemView) {
             super(itemView);
@@ -144,10 +145,32 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
 
         public void setStatus(int status) {
             this.status = status;
+            rvStatus = mView.findViewById(R.id.txt_status);
+
+            if (status == 0){
+                rvStatus.setText("Belum di periksa");
+            } else if (status == 2){
+                rvStatus.setText("Menunggu Tanda Tangan");
+            } else if(status == 3){
+                rvStatus.setText("Siap diambil");
+            } else if (status == 4){
+                rvStatus.setText("Sudah di ambil");
+            } else if (status == 9){
+                rvStatus.setText("Dibatalkan Pemohon");
+            }
+
         }
 
         public void setTgl(String created_at) {
             this.created = created_at;
+            rvTgl_dibuat = mView.findViewById(R.id.txt_tgl_dibuat);
+            rvTgl_dibuat.setText(created_at);
+        }
+
+        public void setNo(String no_hp_aktif) {
+            this.no = no_hp_aktif;
+            rvNo = mView.findViewById(R.id.txt_no);
+            rvNo.setText(no_hp_aktif);
         }
     }
 }
