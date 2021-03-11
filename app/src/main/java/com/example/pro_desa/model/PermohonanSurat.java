@@ -27,6 +27,8 @@ public class PermohonanSurat extends PermohonanSuratResponse {
     @SerializedName("nama_kategori_surat") String nama_kategori_surat;
     @Expose
     @SerializedName("status_permohonan") String status_permohonan;
+    @Expose
+    @SerializedName("created_at") String created_at;
 
     public int getId() {
         return id;
@@ -114,5 +116,13 @@ public class PermohonanSurat extends PermohonanSuratResponse {
 
     public void setStatus_permohonan(String status_permohonan) {
         this.status_permohonan = status_permohonan;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 }

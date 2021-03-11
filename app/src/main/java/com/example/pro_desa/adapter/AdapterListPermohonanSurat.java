@@ -49,6 +49,8 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
     public void onBindViewHolder(@NonNull PermohonanSuratViewHolder holder, int position) {
         holder.setId(permohonanSuratLists.get(position).getId());
         holder.setJudul(permohonanSuratLists.get(position).getNama_kategori_surat());
+        holder.setStatus(permohonanSuratLists.get(position).getStatus());
+        holder.setTgl(permohonanSuratLists.get(position).getCreated_at());
 
     }
 
@@ -96,8 +98,8 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
 
     public class PermohonanSuratViewHolder extends RecyclerView.ViewHolder {
         View mView;
-        int id;
-        String nama, url_gambar,id_syarat;
+        int id, status;
+        String nama, url_gambar,id_syarat, created;
 
         TextView rvJudul, rvTglUpload, rvIsi;
 
@@ -110,10 +112,12 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
                 public void onClick(View view) {
                     context.startActivity(new Intent(context, DetailPermohonanSuratActivity.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            .putExtra("IT_ID", id)
+                            .putExtra("IT_ID", String.valueOf(id))
                             .putExtra("IT_NAMA", nama)
                             .putExtra("IT_ID_SYARAT", id_syarat)
                             .putExtra("IT_URL_GAMBAR_FILE", url_gambar)
+                            .putExtra("IT_STATUS", String.valueOf(status))
+                            .putExtra("IT_CREATED", created)
                     );
 
 //                    Log.d("id_leter", String.valueOf(id));
@@ -138,5 +142,12 @@ public class AdapterListPermohonanSurat extends RecyclerView.Adapter<AdapterList
         }
 
 
+        public void setStatus(int status) {
+            this.status = status;
+        }
+
+        public void setTgl(String created_at) {
+            this.created = created_at;
+        }
     }
 }

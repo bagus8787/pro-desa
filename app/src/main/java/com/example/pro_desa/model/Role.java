@@ -8,7 +8,7 @@ public class Role {
     public final static String ROLE_ADMIN_NASIONAL = "admin nasional";
     public final static String ROLE_ADMIN_REGIONAL = "admin rasional";
     public final static String ROLE_KEPALA_DESA = "kepala desa";
-    public final static String ROLE_KEPALA_DUSUN = "superadmin";
+    public final static String ROLE_KEPALA_DUSUN = "kepala dusun";
     public final static String ROLE_RT = "rt";
     public final static String ROLE_RW = "rw";
     public final static String ROLE_MASYARAKAT = "masyarakat";

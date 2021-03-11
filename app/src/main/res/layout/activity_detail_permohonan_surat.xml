@@ -33,6 +33,156 @@
                 android:textSize="24sp"/>
         </LinearLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_keterangan_surat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:text="Keterangan Pengantar"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginEnd="2dp"
+                android:layout_toStartOf="@+id/txt_tgl_pe_surat"
+                android:src="@drawable/ic_baseline_date_range" />
+
+            <TextView
+                android:id="@+id/txt_tgl_pe_surat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:text="09-09-2021"
+                android:textAlignment="viewEnd"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/ic_diajukan"
+                android:layout_width="25dp"
+                android:layout_height="74dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="13dp"
+                android:src="@drawable/timeline"
+                app:tint="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/txt_diajukan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ic_diajukan"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="-3dp"
+                android:layout_toEndOf="@+id/ic_diajukan"
+                android:text="Diajukan"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ic_belumdiperiksa"
+                android:layout_width="25dp"
+                android:layout_height="74dp"
+                android:layout_below="@+id/ic_diajukan"
+                android:layout_alignStart="@+id/ic_diajukan"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-5dp"
+                android:src="@drawable/timeline2" />
+
+            <TextView
+                android:id="@+id/txt_belum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ic_belumdiperiksa"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="-12dp"
+                android:layout_toEndOf="@+id/ic_belumdiperiksa"
+                android:text="Belum di periksa"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ic_menunggu"
+                android:layout_width="25dp"
+                android:layout_height="74dp"
+                android:layout_below="@+id/ic_belumdiperiksa"
+                android:layout_alignStart="@+id/ic_belumdiperiksa"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-5dp"
+                android:src="@drawable/timeline2" />
+
+            <TextView
+                android:id="@+id/txt_menunggu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ic_menunggu"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="-12dp"
+                android:layout_toEndOf="@+id/ic_menunggu"
+                android:text="Menunggu Tanda Tangan"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ic_siap"
+                android:layout_width="25dp"
+                android:layout_height="74dp"
+                android:layout_below="@+id/ic_menunggu"
+                android:layout_alignStart="@+id/ic_menunggu"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-5dp"
+                android:src="@drawable/timeline2" />
+
+            <TextView
+                android:id="@+id/txt_siap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ic_siap"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="-12dp"
+                android:layout_toEndOf="@+id/ic_siap"
+                android:text="Siap diambil"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ic_sudah"
+                android:layout_width="25dp"
+                android:layout_height="74dp"
+                android:layout_below="@+id/ic_siap"
+                android:layout_alignStart="@+id/ic_siap"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-5dp"
+                android:src="@drawable/timeline2"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/txt_sudah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ic_sudah"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="-12dp"
+                android:layout_toEndOf="@+id/ic_sudah"
+                android:text="Sudah di ambil"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
     </LinearLayout>
 
 
